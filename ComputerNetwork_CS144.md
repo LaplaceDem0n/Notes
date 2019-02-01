@@ -52,3 +52,25 @@
 
 ###  1-5: The Principle of Packet Switching
 
+### 1-6: The Principle of Layering
+
+### 1-7: The Principle of Encapsulation
+
+### 1-8: Byte order and packet formats
+
+Network order is Big-endian.
+
+*The layout of a character string in memory is the same on big-endian and little-endian architectures.*
+
+### 1-9: IPv4 addresses and CIDR
+
+**Classes Inter-Domain Routing**
+
+Subnet.
+
+### 1-10: Longest prefix match (LPM) 
+
+
+
+
+
