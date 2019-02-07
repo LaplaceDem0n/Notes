@@ -182,11 +182,13 @@ Match the forwarding table entry or the default.
 - 传输延迟
 - 排队等待延迟
 
-
+*习题里大小不同的数据包消耗的总延迟算法不一样，不过暂时没看懂，上课再想吧。*
 
 ### 3-4: Playback Buffers
 
 ### 3-5 Simple Deterministic Queue Model
+
+
 
 ### 3-6 Queueing Model Properties
 
