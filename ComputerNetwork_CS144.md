@@ -186,17 +186,54 @@ Match the forwarding table entry or the default.
 
 ### 3-4: Playback Buffers
 
+Q:Problem 3-4C
+If a voice call has missing data it makes it hard to understand the speaker. Therefore, we commonly allow time for a limited number of retransmissions before playing the sound to the listener. If the network path (in each direction) has total packetization delay of 15ms, total propagation delay of 25ms, and queuing delay varying between 0ms and 10ms, how large (in milliseconds) does the playback buffer need to be if we want to allow for one retransmission?
+
+*110ms*
+
+Hint:The maximum RTT of the network is 100ms, so the packet can be retransmitted if a response has not been heard within 100ms.
+
 ### 3-5 Simple Deterministic Queue Model
-
-
 
 ### 3-6 Queueing Model Properties
 
+- 突发慢
+
+- 规矩快
+
+- Little’s Result
+
+	$L=\lambda d$
+
+	$L$:等待队列长度
+
+	$\lambda$:输入速率
+
+	$d$:平均延迟
+
+	说人话就是：average_delay = average_occupancy / arrival_rate
+
+- 泊松过程与M\M\1队列
+
+	*没听懂最后一个……*
+
+	
+
 ### 3-7: Switching and Forwarding (1)
+
+- 输出处队列
+	- 最小化数据包延迟
 
 ### 3-8: Switching and Forwarding (2)
 
+- 输入处队列
+	- 高性能
+	- 结合虚拟输出处队列达到最大输出带宽
+
 ### 3-9: Rate Guarantees
+
+- 绝对等级队列
+- 权重队列
 
 ### 3-10: Delay Guarantees
 
@@ -212,13 +249,25 @@ Match the forwarding table entry or the default.
 
 ### 4-2: Approaches: network vs end host, max min fairness, AIMD
 
+- 一点点试探，一大步退却
+
 ### 4-3: Dynamics of a single AIMD flow
+
+- 规则的锯齿
 
 ### 4-4: Multiple AIMD flow
 
+- 服务器的buffer经常处于99%占用的状态
+
 ### 4-5: TCP Tahoe
 
+- 从微小的地方指数形式起步
+- drop一个就进入放阻塞状态，试探得更慢
+
 ### 4-6: TCP RTT estimation
+
+- 改进timeout的预计算法，得到更加精确的时间
+- Self-Clocking
 
 ### 4-7: TCP Reno
 
