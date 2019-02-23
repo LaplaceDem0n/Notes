@@ -269,9 +269,53 @@ Hint:The maximum RTT of the network is 100ms, so the packet can be retransmitted
 - 改进timeout的预计算法，得到更加精确的时间
 - Self-Clocking
 
+*跳过了一道计算题*
+
 ### 4-7: TCP Reno
 
+**这里只记录和Tohoe不同的地方**
+
+-   多余ACK的时候并不把congestion window变成1，而是折半。
+-   timeout的时候变成1
+
+*网课的计算题好麻烦啊……*
+
+```
+Problem 4-7A
+1/1 point (graded)
+Recall that TCP Reno and Tahoe differ in how they handle a triple-duplicate ACKs. Reno enters a fast retransmit state while Tahoe re-enters slow start. Suppose you have a network which supports a maximum window size of 16 packets before it starts dropping packets. On this network, you first run a TCP Tahoe flow that slow starts and observe its behaviour as it reaches steady state (where you see a repetitive pattern of congestion windows emerging).
+
+In this steady state, what is the throughput of the TCP Tahoe flow in packets/second? Call this value “A.” Assume a constant RTT estimate of 1s, and a RTT variance estimate of 0.5s.
+
+Now, you run a TCP Reno flow and observe its steady state behaviour. What is its throughput in packets/second (call it “B”), assuming the same RTT and variance estimates as above?
+
+Now that you’ve computed A and B, what is the value of B/A? Assume ACKs never get lost, cwnd/ssthresh are always integers, and queueing delays are negligible.
+
+
+~0.51
+~1
+~1.18 correct
+~1.52
+~1.3
+Explanation
+
+Explanation: In steady state, TCP Tahoe will have a ssthresh of 8 packets. So, you have a SS phase that transmits 1+2+4+8 packets lasting 4s, and then a CA phase transmitting 9+...+16+16*+16 (the 17th packet is the round marked * is dropped) lasting 10s. Since you get a triple duplicate ACK, you enter slow start, setting ssthresh=17/2 = 8, after which the behaviour repeats. So, you transmit 15+100+16+16=147 packets every 14s, which is 10.5 packets/sec.
+
+In steady state, TCP Reno will have also a ssthresh of 8 packets, but it always stays in CA phase. In the CA phase, you always transmit 8+9+...+16+16*+16=140 packets which lasts 11s.
+
+The train of packets in the 10th second triggers a triple-duplicate ACK in the 11th second, and you immediately retransmit the packet in the 12th second. Then, during fast recovery, the congestion window is set to cwnd / 2 = 17 / 2 = 8. For each of the 17 duplicate ACKs (one ACK from the last packet sucessfully received in the 16* window, and an additional 16 from the packets received in the following window), cwnd is increased by one. A packet is sent once cwnd grows to 18; another is sent once cwnd grows to 19; and so on until cwnd grows to 8 + 17 = 25. Thus, a total of 1 + (25 - 18 + 1) = 9 packets are sent in the 12th second. This whole sequence repeats from the 13th second. The throughput in this case is 149/12=12.42 packets/sec.
+
+Thus, B/A ~ 1.18.
+```
+
+
+
 ### 4-8: Why AIMD
+
+-   Chiu Jain Plot
+    -   维持了用户间的平衡
+        -   送数据包多的那个half的时候window size掉的也多
+        -   最终接近Fair与Payload的平衡
 
 ### 4-9: Reading an RFC
 
@@ -279,9 +323,17 @@ Hint:The maximum RTT of the network is 100ms, so the packet can be retransmitted
 
 ### 4-11: Shortcomings and improvements of TCP and congestion control -- Nandita Dukkipati
 
+# Midterm
+
+
+
 ## Unit 5: Applications and NATs
 
 ### 5-0: Applications and NATs
+
+
+
+
 
 ### 5-1: Network Address Translation
 
