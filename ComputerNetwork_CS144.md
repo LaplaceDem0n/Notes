@@ -1,5 +1,42 @@
 # 计算机网络_CS144_斯坦福
 
+## Self-Reading
+
+>   ### Engineering.Networking-SP.SelfPaced
+>
+>   This is the wiki for **Engineering**'s Introduction to Computer Networking : CS144
+>
+>   # Textbook Readings
+>
+>   Kurose, J. and Ross, K. Computer Networking: A Top-Down Approach.
+>
+>   -   Unit 1: 6th/7th Editions: Sections 1.1-1.3; 1.5; 2.1.
+>   -   Unit 2: 6th/7th Editions: Sections 3.1-3.5.
+>   -   Unit 3: 6th Edition pp. 22-31; 640-648. 7th Edition pp. 21-43; 709-719.
+>   -   Unit 4: 6th Edition pp. 259-265; 269-279. 7th Edition pp. 261-282.
+>   -   Unit 5: 6th Edition pp. 83-114. 7th Edition pp. 83-110.
+>   -   Unit 6: 6th Edition pp. 305-379. 7th Edition pp. 305-348; 373-384.
+>   -   Unit 7: 6th Edition pp. 433-443; 461-482. 7th Edition pp. 439-449; 467-487.
+>   -   Unit 8: 6th Edition pp. 671-693. 7th Edition pp. 593-614.
+>
+>   # Notable Request for Comments
+>
+>   -   [RFC 768](https://tools.ietf.org/html/rfc768) - User Datagram Protocol (UDP)
+>   -   [RFC 791](https://tools.ietf.org/html/rfc791) - Internet Protocol (IP)
+>   -   [RFC 792](https://tools.ietf.org/html/rfc792) - Internet Control Message Protocol (ICMP)
+>   -   [RFC 793](https://tools.ietf.org/html/rfc793) - Transmission Control Protocol (TCP)
+>   -   [RFC 826](https://tools.ietf.org/html/rfc826) - An Ethernet Address Resolution Protocol (ADR)
+>
+>   Find more notable RFC's from [Wikipedia - List of RFCs](https://en.wikipedia.org/wiki/List_of_RFCs)
+>
+>   The homepage of the Internet Engineering Task Force - <https://www.ietf.org/>
+>
+>   View all [Official Internet Protocol Standards](https://www.rfc-editor.org/standards) here.
+>
+>   Wish you well!
+
+
+
 ## Unit 1: The Internet and IP
 
 ### 1-1: A Day in the Life of an Application
@@ -40,7 +77,7 @@
 
 - Handshake
 
-  - ###### Syn
+  - Syn
 
   - Syn/Ack
 
