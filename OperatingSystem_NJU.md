@@ -2,13 +2,14 @@
 
 [TOC]
 
-## Process
+## Process & Schedule
 
  **Q**
 
 -   原语primitive=>原子操作atomic action
     -   是由若干个机器指令构成的完成某种特定功能的一段程序，具有不可分割性·即原语的执行必须是连续的，在执行过程中不允许被中断。
 -   程序性中断=>异常？
+-   Real & Protect mode
 
 
 
@@ -18,7 +19,7 @@ Linux下的三种Schedule机制
 2.  Softirq
 3.  Workqueue
 
-## Sync
+## Concurrency & Sync
 
 **Q**
 
@@ -67,7 +68,15 @@ PV操作和信号量
 -   Aviodence-Banker
 -   Detect & Recovery
 
+## Storage
 
+## Device
+
+TBD：
+
+-   单|双|多缓冲
+
+## Files
 
 # 名词解释
 

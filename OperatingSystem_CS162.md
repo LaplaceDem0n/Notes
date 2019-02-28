@@ -1,8 +1,12 @@
 # 操作系统_CS162_伯克利
 
-## 1-4
+## What’s a OS?
 
-Intro
+TBD:CS152\160\169?
+
+
+
+## 4 fundamental OS concepts
 
 -   Thread
     -   共享的代码、数据和文件。分立的寄存器和栈。
