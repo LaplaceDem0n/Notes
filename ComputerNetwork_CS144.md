@@ -8,6 +8,8 @@
 >
 >   # Textbook Readings
 >
+>   **Page-=27**
+>
 >   Kurose, J. and Ross, K. Computer Networking: A Top-Down Approach.
 >
 >   -   Unit 1: 6th/7th Editions: Sections 1.1-1.3; 1.5; 2.1.
@@ -186,7 +188,8 @@ Match the forwarding table entry or the default.
 	Bandwidth= Net data send/RTT= 10Kb
 	```
 
-	
+
+​	
 
 ### 2-9: Reliable Communications - Retransmission strategies
 
@@ -210,8 +213,6 @@ Match the forwarding table entry or the default.
 ### 3-1: The History of Networks; History of the Internet
 
 ### 3-2: What is Packet Switching?
-
-
 
 ### 3-3: Terminology, End to End Delay and Queueing Delay
 
@@ -240,21 +241,22 @@ Hint:The maximum RTT of the network is 100ms, so the packet can be retransmitted
 
 - Little’s Result
 
-	$L=\lambda d$
-
-	$L$:等待队列长度
-
-	$\lambda$:输入速率
-
-	$d$:平均延迟
-
-	说人话就是：average_delay = average_occupancy / arrival_rate
+$L=\lambda d$
+	
+$L$:等待队列长度
+	
+$\lambda$:输入速率
+	
+$d$:平均延迟
+	
+说人话就是：average_delay = average_occupancy / arrival_rate
 
 - 泊松过程与M\M\1队列
 
-	*没听懂最后一个……*
+*没听懂最后一个……*
 
-	
+
+​	
 
 ### 3-7: Switching and Forwarding (1)
 
@@ -277,6 +279,38 @@ Hint:The maximum RTT of the network is 100ms, so the packet can be retransmitted
 ### 3-11: Packet Switching (recap)
 
 ### 3-12: DC Switches -- Tom Edsall
+
+
+
+### Reading notes
+
+#### Scheduling Mechanisms
+
+-   FIFO/FCFS
+-   Priority Queuing-High priority queue & Low priority
+-   Round Robin & WFQ(Weighted Fair Queuing)
+    -   Round Robin-Polling
+    -   WFQ-Serve by weight
+-   The Leaky Bucket
+    -   $rt+b$
+        -   $r$:rate
+        -   $t$:time
+        -   $b$:buffer size
+-   The Leaky Bucket + WFQ = Provable Maximum Delay in a Queue
+
+$$d_{max}=\frac{b_1}{R*w_1/\sum{w_j}}$$
+
+$d_{max}$:Max delay
+
+$b_1$:Flow 1’s full buffer size
+
+$R$:Transmission rate of the link in packet/sec.
+
+$w_1$:Flow 1’s weight
+
+$w_j$:Flow j’s weight
+
+
 
 ## Unit 4: Congestion Control
 
@@ -360,7 +394,17 @@ Thus, B/A ~ 1.18.
 
 ### 4-11: Shortcomings and improvements of TCP and congestion control -- Nandita Dukkipati
 
-# Midterm
+
+
+### Reading notes
+
+ABR-Available bit-rate.
+
+ATM-Asynchronous transfer-mode.
+
+
+
+## Midterm
 
 
 
