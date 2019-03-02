@@ -25,8 +25,6 @@ CPU中的寄存器存着Vector Table的起始地址。
     -   loads a new executable into the address space & execute it
 -   fork()+exec()=spawn()
 
-## 
-
 ### Process descriptor in Linux
 
 -   Store
@@ -48,3 +46,16 @@ CPU中的寄存器存着Vector Table的起始地址。
 
 -   User process/thread
 -   Kernel process/thread
+
+## Schedule
+
+### Timer interupt
+
+每隔一段时间由timer invoke kernel.
+
+### Process context
+
+**System call** won’t change the process context.
+
+### Interrupt context
+
