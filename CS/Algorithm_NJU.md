@@ -1,12 +1,10 @@
 # Algorithm_NJU
 
-## Info
+## Class info
 
+In 00-prologue.pdf
 
-
-## Week 1-Intro & Prelouge
-
-**Ex**
+**Examples**
 
 -   Selection
 
@@ -40,27 +38,65 @@
     -   8次纸质作业
     -   6-8次OJ，每次Duration有2周左右。
 
+## Week 1-Intro & Prelouge
+
 ### Proof
 
--   Double counting
+#### Double counting
+
 -   Count the same thing twice-in this case, the triangle graph.
 
 $$\sum\limits^n_{i=1}x^2=\frac{n(n-1)(2n+1)}{6}$$
 
+#### 归纳Induction(Terminable & keeping the answers)
+
+以欧几里得算法求gcd为例。
+
+-   问题规模不断缩小，所以一定会终止
+-   由数论知识知道所有的公约数都被保留
 
 
-### Definition of Algorithm
 
-### Properties of Algorithm
+### Concept of Algorithm
 
--   Worst case compelexty
--   Average compelecity
-    -   Upper bound for algorithm
-    -   Lower bound for problem
+### Criteria of Algorithm
+
+-   Correctness & proof
+
+-   Complexity
+
+    -   Focus on critical operation
+    -   Amount of work done
+    -   Amount of space used
+    -   Worst case complexity
+    -   Average complexity
+        -   Upper bound for algorithm
+        -   Lower bound for problem
+
+-   Simplicity, clarity
+
 -   最优性Optimality
+
 -   渐进分析Asymptotic
     -   Big O
+
     -   Other Sets
-        -   $\lim\limits_{n\to}$
-    -   $\lg n<n^\alpha<c^n<n!<n^n$
+
+        $$\lim\limits_{n\to\infty}\frac{f(n)}{g(n)}=c\begin{cases}c=0, & f=\omicron(g) \\ 0\le c \lt\infty, & f=\Omicron(g)\\ 0\lt c \lt \infty, & f=\Theta(g)\\0\lt c\le \infty, & f=\Omega(g)\\ c=\infty, & f=\omega(g) \end{cases}$$
+
+        Note:
+
+        1.  右侧符号看做从小到大的蛋，中间一个有点东西，然后破壳，成长一点就扭曲了。
+        2.  。
+        3.  $\Omicron$传递性Transitive property
+        4.  上下对称Symmetric properties
+        5.  Order of sum function. $\Omicron(f+g)=\Omicron(max(f,g))$.
+
+    -   $\lg n<n^\alpha<c^n<n!<n^n​$
+
+
+
+### Divide and Conquer
+
+### Decision tree
 
