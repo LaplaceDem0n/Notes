@@ -1,0 +1,177 @@
+\documentclass[17pt,UTF-8,a4paper]{ctexart}
+%\usepackage[]{ctex}
+%\usepackage[explicit]{titlesec}
+
+\CTEXoptions[today=old]
+%日期使用英文格式
+
+%\renewcommand\thesection{1.\arabic{section}}
+%暂时通过每次作业修改这个地方和标题来使得作业与题目Match。
+
+
+
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}%\usepackage{amsthm}
+%\usepackage{amsfonts}
+%\usepackage{tikz}
+%\usepackage[plain]{algorithm}
+%\usepackage{algpseudocode}
+
+%\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass\ (\hmwkClassInstructor): \hmwkTitle}
+%\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%\setcounter{secnumdepth}{2}
+\newcounter{partCounter}
+%\newcounter{homeworkProblemCounter}
+%\setcounter{homeworkProblemCounter}{0}
+%\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Problem\ Set\ 1}
+\newcommand{\hmwkDueDate}{\today}
+\newcommand{\hmwkClass}{Graph Theory}
+\newcommand{\hmwkClassTime}{}
+\newcommand{\hmwkClassInstructor}{程龚}
+\newcommand{\hmwkAuthorName}{\textbf{Name}\:彭自远\quad\textbf{ID}\:171180631}
+%\newcommand{\hmwkAuthorName}{\textbf{彭自远} \and \textbf{Davis Josh}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Printed\ on\ \hmwkDueDate}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor}}
+    %\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+%\maketitle
+
+%\pagebreak
+
+\section*{Problem Set 1}
+
+\subsection*{Problem 1.4 度}
+\paragraph*{反证法}
+假设在一个n阶简单图中，没有任意两个点度数相同。
+
+\paragraph*{}
+在一个有n个顶点的图中，点的度一定在0到n-1之间，共有n种可能。如果有度为0的顶点，则余下n-1个顶点的度的取值范围为1到n-2之间(如果为0则有两个点度数相同），共有n-2种可能，由鸽笼原理知必有两个点度数相同。
+如果没有度为0的顶点，则n个顶点的度的取值范围为1到n-1，共有n-1种可能，同样由鸽笼原理知必有两个点度数相同。
+
+\paragraph*{}
+综上，在一个n阶简单图中，至少有两个点度数相同。
+
+
+\subsection*{Problem 1.35 同构}
+
+
+
+
+\paragraph*{结论}
+左图与中间的图同构。左图和中间的图都与右图不同构。
+
+\paragraph*{证明 Part 1}
+左图与中间的图的双射如下：\\
+左图顶点：d g e b h c a f\\
+中图顶点：u v t s z y x w 
+
+\paragraph*{证明 Part 2}
+中间的图为二部图，而右图非二部图。\\
+另外，由于左图与中间的图同构，中间的图与右图不同构，左图与右图也不同构。
+
+\subsection*{Problem 1.23 长度} 
+\paragraph*{证明 Part 1}
+对图$G$中任意点$v_0$，删去该点后，$\delta({G-v_0})\geq{k-1}$。\\
+在图的最小度不为1时，总能接着删去新的点。\\  
+不断地删去点直到得到图的最小度为0。共删去了k个相邻的点，这k个相邻点即可组成长度为k的路。
+
+
+\paragraph*{证明 Part 2}
+设图$G$中度最小的点为$v_0$，设图中最长路为：$P=v_0,\dots,v_k$。此时图内最小圈的长度取决与于$v_0$相邻的在路径P上的最远点的位置，圈长度的最小情况出现在$v_1,v_2,\dots,v_{\delta(G)}$都与$v_0$相邻时。此时，$v_0,v_1,v_2,\dots,v_{\delta(G)},v_0$为最小圈。
+%当$\Theda(G)$
+
+\subsection*{Problem 1.31 连通}
+\paragraph*{证明}
+由于图$G$是非连通的，如果图中只有两个顶点，结论易证。\\
+否则，对图$G$中有边相连的点$u$和$v$，总可以找到另一连通分量的点$w$，使得在图$\overline{G}$中,$u$与$w$间存在路径，$v$与$w$间存在路径，也即$u$与$v$间存在路径。\\
+对图$G$中没有边相连的点$x$和$y$,在图$\overline{G}$中一定有边相连。
+综上所述，对于非连通图$G$中任意两点，在图$\overline{G}$中必存在路径，所以非连通图$G$的补图$\overline{G}$是连通的。
+
+\subsection*{Problem 1.63 离心率}
+
+
+
+\end{document}
