@@ -8,18 +8,18 @@
 >
 >   # Textbook Readings
 >
->   **Page-=27**
+>   **Page number here+27=Page number on PDF index**
 >
 >   Kurose, J. and Ross, K. Computer Networking: A Top-Down Approach.
 >
 >   -   Unit 1: 6th/7th Editions: Sections 1.1-1.3; 1.5; 2.1.
 >   -   Unit 2: 6th/7th Editions: Sections 3.1-3.5.
->   -   Unit 3: 6th Edition pp. 22-31; 640-648. 7th Edition pp. 21-43; 709-719.
->   -   Unit 4: 6th Edition pp. 259-265; 269-279. 7th Edition pp. 261-282.
->   -   Unit 5: 6th Edition pp. 83-114. 7th Edition pp. 83-110.
->   -   Unit 6: 6th Edition pp. 305-379. 7th Edition pp. 305-348; 373-384.
->   -   Unit 7: 6th Edition pp. 433-443; 461-482. 7th Edition pp. 439-449; 467-487.
->   -   Unit 8: 6th Edition pp. 671-693. 7th Edition pp. 593-614.
+>   -   Unit 3: 6th Edition pp. 22-31(1.3-1.3.3不读); 640-648(). 7th Edition pp. 21-43; 709-719.
+>   -   Unit 4: 6th Edition pp. 259-265(3.6-3.6.2不读); 269-279(3.7TCP阻塞控制-3.7.1不读). 7th Edition pp. 261-282.
+>   -   Unit 5: 6th Edition pp. 83-114(Application Layer章首-2.2.6不读). 7th Edition pp. 83-110.
+>   -   Unit 6: 6th Edition pp. 305-379(Network Layer章首-4.5.3层次路由不读). 7th Edition pp. 305-348; 373-384.
+>   -   Unit 7: 6th Edition pp. 433-443(Link Layer章首-5.2.3CRC不读); 461-482(5.4交换局域网-5.4.4虚拟局域网不读). 7th Edition pp. 439-449; 467-487.
+>   -   Unit 8: 6th Edition pp. 671-693(Security章首-8.3.3不读). 7th Edition pp. 593-614.
 >
 >   # Notable Request for Comments
 >
@@ -332,6 +332,10 @@ $w_j$:Flow j’s weight
 
 ### 4-5: TCP Tahoe
 
+-   Break into 3 questions
+    -   When to send new data?
+    -   When to retransmit?
+    -   When to send ACK?
 - 从微小的地方指数形式起步
 - drop一个就进入放阻塞状态，试探得更慢
 
@@ -378,6 +382,48 @@ The train of packets in the 10th second triggers a triple-duplicate ACK in the 1
 
 Thus, B/A ~ 1.18.
 ```
+
+### Appendix
+
+说人话解决TCP的历史协议。
+
+来自Wiki：
+
+>   TCP使用多种拥塞控制策略来避免雪崩式拥塞。TCP会为每条连接维护一个“拥塞窗口”来限制可能在端对端间传输的未确认分组总数量。这类似TCP流量控制机制中使用的滑动窗口。TCP在一个连接初始化或超时后使用一种“慢启动”机制来增加拥塞窗口的大小。它的起始值一般为最大分段大小（Maximum segment size，MSS）的两倍，虽然名为“慢启动”，初始值也相当低，但其增长极快：当每个分段得到确认时，拥塞窗口会增加一个MSS，使得在每次往返时间（round-trip time，RTT）内拥塞窗口能高效地双倍增长。
+>
+>   当拥塞窗口超过慢启动阈值（ssthresh）时，算法就会进入一个名为“拥塞避免”的阶段。在拥塞避免阶段，只要未收到重复确认，拥塞窗口则在每次往返时间内线性增加一个MSS大小。
+
+对于处理报文丢失这个事件上，不同拥塞控制算法表现有所不同：
+
+
+
+>   对于TCP Tahoe算法，当发生丢失时，会进入“快速重传”机制，慢启动阈值设为之前拥塞窗口值的一半，拥塞窗口值降为初始值，重新进入慢启动阶段。当拥塞窗口值达到慢启动阈值时，每RTT内拥塞窗口增加值则为“MSS除以CWND”的值，所以拥塞窗口按线性速度增加。
+>   TCP Reno算法实现了一个名为“快速恢复”的机制，慢启动阈值设为之前拥塞窗口值的一半，和作为新的拥塞窗口值，并跳过慢启动阶段，直接进入拥塞控制阶段。
+
+**快速重传**
+快速重传（Fast retransmit）是对TCP发送方降低等待重发丢失分段用时的一种改进。TCP发送方在每发送一个分段时会启动一个超时计时器，如果相应的分段确认没在特定时间内被送回，发送方就假设这个分段在网络上丢失了，需要重发。这也是TCP用来估计RTT的测量方法。
+
+重复确认（duplicate cumulative acknowledgements，DupAcks）就是这个阶段的基础，其基于以下过程：如果接收方接收到一个数据分段，就会将该分段的序列号加上数据字节长的值，作为分段确认的确认号，发送回发送方，表示期望发送方发送下一个序列号的分段。但是如果接收方提前收到更下一个序列号的分段——或者说接收到无序到达的分段，即之前期望确认号对应的分段出现接收丢失——接收方需要立即使用之前的确认号发送分段确认。此时如果发送方收到接收方相同确认号的分段确认超过1次，并且该对应序列号的分段超时计时器仍没超时的话，则这就是出现重复确认，需要进入快速重传。
+
+快送重传就是基于以下机制：如果假设重复阈值为3，当发送方收到4次相同确认号的分段确认（第1次收到确认期望序列号，加3次重复的期望序列号确认）时，则可以认为继续发送更高序列号的分段将会被接受方丢弃，而且会无法有序送达。发送方应该忽略超时计时器的等待重发，立即重发重复分段确认中确认号对应序列号的分段。
+
+**TCP Tahoe & TCP Reno具体实现算法**
+
+>   两者算法大致一致，对于丢包事件判断都是以重传超时（retransmission timeout，RTO）和重复确认为条件，但是对于重复确认的处理，两者有所不同：
+>
+>   Tahoe：如果收到三次重复确认——即第四次收到相同确认号的分段确认，并且分段对应包无负载分段和无改变接收窗口——的话，Tahoe算法则进入快速重传，将慢启动阈值改为当前拥塞窗口的一半，将拥塞窗口降为1个MSS，并重新进入慢启动阶段。[15]
+>   Reno：如果收到三次重复确认，Reno算法则进入快速重传，只将拥塞窗口减半来跳过慢启动阶段，将慢启动阈值设为当前新的拥塞窗口值，进入一个称为“快速恢复”的新设计阶段。
+>   对于RTO，两个算法都是将拥塞窗口降为1个MSS，然后进入慢启动阶段。[15]
+>
+>   快速恢复
+>   快速恢复（Fast recovery）是Reno算法新引入的一个阶段，在将丢失的分段重传后，启动一个超时定时器，并等待该丢失分段包的分段确认后，再进入拥塞控制阶段。如果仍然超时，则回到慢启动阶段。
+
+从JAVA Applet观察，[TCP-Congestion](https://media.pearsoncmg.com/aw/ecs_kurose_compnetwork_7/cw/content/interactiveanimations/tcp-congestion/index.html)
+
+|         | Tahoe                                                        | Reno                   |
+| ------- | ------------------------------------------------------------ | ---------------------- |
+| 3 Ack’s | Set window to 1, exponential rise to ssthresh, congestion avoidance. | *Half the window size. |
+| Timeout | Same as above.                                               | Same as left-above.    |
 
 
 
