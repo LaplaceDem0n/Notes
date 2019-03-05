@@ -1,6 +1,6 @@
 # GraphTheory_NJU
 
-## Week1——Intro & Defs 图的基本概念
+## Week1——Intro & concepts 
 
 阶order: $v(G)=|V(G)|$。读作纽。
 
@@ -45,31 +45,25 @@ walk->trail->path
 
 **自学部分**
 
-离心率：两个离得最远的点
+离心率：一个点到图中另外一个点的最短路径的最长距离
 
-中心
+中心：半径最小的点（这样的点不唯一）
 
-半径：
+半径：离心率最小的点的离心率
 
-直径：
+直径：离心率最大的点的离心率，图中两个点的最长最短路的距离
 
-中位点：
+中位点：跳过
 
-A [metric space](https://www.wikiwand.com/en/Metric_space) defined over a set of points in terms of distances in a graph defined over the set is called a **graph metric**. The vertex set (of an undirected graph) and the distance function form a metric space, if and only if the graph is [connected](https://www.wikiwand.com/en/Connected_(graph_theory)).
 
-The **eccentricity** ![\epsilon (GraphTheory_NJU.assets/829a4a4a595e508eea918455f8154ad189df595b-1551710032699.svg)](https://wikimedia.org/api/rest_v1/media/math/render/svg/829a4a4a595e508eea918455f8154ad189df595b) of a vertex ![v](GraphTheory_NJU.assets/e07b00e7fc0847fbd16391c778d65bc25c452597-1551710032702.svg) is the greatest distance between ![v](GraphTheory_NJU.assets/e07b00e7fc0847fbd16391c778d65bc25c452597-1551710032702.svg) and any other vertex; in symbols that is ![{\displaystyle \epsilon (GraphTheory_NJU.assets/d078af5df2ef5998f87f97e2b269ae3fc8c35825-1551710032708.svg)=\max _{u\in V}d(v,u)}](https://wikimedia.org/api/rest_v1/media/math/render/svg/d078af5df2ef5998f87f97e2b269ae3fc8c35825). It can be thought of as how far a node is from the node most distant from it in the graph.
 
-The **radius** ![r](GraphTheory_NJU.assets/0d1ecb613aa2984f0576f70f86650b7c2a132538.svg) of a graph is the minimum eccentricity of any vertex or, in symbols, ![{\displaystyle r=\min _{v\in V}\epsilon (GraphTheory_NJU.assets/38af03e1b81b0a52bb946e56905bb831967000d4-1551710032715.svg)=\min _{v\in V}\max _{u\in V}d(v,u)}](https://wikimedia.org/api/rest_v1/media/math/render/svg/38af03e1b81b0a52bb946e56905bb831967000d4).
+### 图的连通性
 
-The **diameter** ![d](GraphTheory_NJU.assets/e85ff03cbe0c7341af6b982e47e9f90d235c66ab-1551710032731.svg) of a graph is the maximum eccentricity of any vertex in the graph. That is, ![d](GraphTheory_NJU.assets/e85ff03cbe0c7341af6b982e47e9f90d235c66ab-1551710032731.svg) is the greatest distance between any pair of vertices or, alternatively, ![d=\max _{v\in V}\epsilon (GraphTheory_NJU.assets/f5c63eea6c9f40b4745dece06551878285877933-1551710032737.svg)](https://wikimedia.org/api/rest_v1/media/math/render/svg/f5c63eea6c9f40b4745dece06551878285877933). To find the diameter of a graph, first find the [shortest path](https://www.wikiwand.com/en/Shortest_path_problem) between each pair of [vertices](https://www.wikiwand.com/en/Vertex_(graph_theory)). The greatest length of any of these paths is the diameter of the graph.
+连通度$w(G)$。
 
-A **central vertex** in a graph of radius ![r](GraphTheory_NJU.assets/0d1ecb613aa2984f0576f70f86650b7c2a132538.svg) is one whose eccentricity is ![r](GraphTheory_NJU.assets/0d1ecb613aa2984f0576f70f86650b7c2a132538.svg)—that is, a vertex that achieves the radius or, equivalently, a vertex ![v](GraphTheory_NJU.assets/e07b00e7fc0847fbd16391c778d65bc25c452597-1551710032702.svg) such that ![\epsilon (GraphTheory_NJU.assets/f663f8ce21e01fdb49950e22c72e27e9d83d106c-1551710032745.svg)=r](https://wikimedia.org/api/rest_v1/media/math/render/svg/f663f8ce21e01fdb49950e22c72e27e9d83d106c).
 
-A **peripheral vertex** in a graph of diameter ![d](GraphTheory_NJU.assets/e85ff03cbe0c7341af6b982e47e9f90d235c66ab-1551710032731.svg) is one that is distance ![d](GraphTheory_NJU.assets/e85ff03cbe0c7341af6b982e47e9f90d235c66ab-1551710032731.svg) from some other vertex—that is, a vertex that achieves the diameter. Formally, ![v](GraphTheory_NJU.assets/e07b00e7fc0847fbd16391c778d65bc25c452597-1551710032702.svg) is peripheral if ![\epsilon (GraphTheory_NJU.assets/78380210a073ddb9c281f418bf89215191e384a3-1551710032988.svg)=d](https://wikimedia.org/api/rest_v1/media/math/render/svg/78380210a073ddb9c281f418bf89215191e384a3).
 
-A **pseudo-peripheral vertex** ![v](GraphTheory_NJU.assets/e07b00e7fc0847fbd16391c778d65bc25c452597-1551710032702.svg) has the property that for any vertex ![u](GraphTheory_NJU.assets/c3e6bb763d22c20916ed4f0bb6bd49d7470cffd8-1551710032988.svg), if ![v](GraphTheory_NJU.assets/e07b00e7fc0847fbd16391c778d65bc25c452597-1551710032702.svg) is as far away from ![u](GraphTheory_NJU.assets/c3e6bb763d22c20916ed4f0bb6bd49d7470cffd8-1551710032988.svg) as possible, then ![u](GraphTheory_NJU.assets/c3e6bb763d22c20916ed4f0bb6bd49d7470cffd8-1551710032988.svg) is as far away from ![v](GraphTheory_NJU.assets/e07b00e7fc0847fbd16391c778d65bc25c452597-1551710032702.svg) as possible. Formally, a vertex *u* is pseudo-peripheral, if for each vertex *v* with ![d(u,v)=\epsilon (u)](https://wikimedia.org/api/rest_v1/media/math/render/svg/226560062ddbd9f47ce86ea145c599fc501a910a) holds ![\epsilon (u)=\epsilon (v)](https://wikimedia.org/api/rest_v1/media/math/render/svg/9cb5cd1cef62d1583154466bdd03f94c872c6e93).
-
-# Week one_hw
+## Week1_hw
 
 ### 同构
 
@@ -92,6 +86,27 @@ A **pseudo-peripheral vertex** ![v](GraphTheory_NJU.assets/e07b00e7fc0847fbd1639
 6.  最长路径/环一样
 7.  相邻关系相同
     1.  能找到一组互不相邻的顶点，其数目很大
+
+
+
+## Week2-cut vertex,cut edge,connectivity
+
+-   等价定义
+    -   证明时的**工具**
+    -   得知一个性质时同样可用的**新性质**
+
+-   何时从逆否命题切入？
+    -   任何->某个。能缩小讨论的范围，更容易讨论
+
+### 证明的方式方法
+
+-   不等式->反证法
+    -   由图推式易，由式推图难
+-   无限情况恒成立->数学归纳法
+-   图论中的计算（2th PDF p23)
+    -   穷举仅有的几个公式，如握手定理导出的$2\epsilon=\sum_{u\in V(G)}d(u)$
+
+
 
 
 
