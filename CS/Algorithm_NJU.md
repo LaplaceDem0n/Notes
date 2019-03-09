@@ -100,3 +100,24 @@ $$\sum\limits^n_{i=1}x^2=\frac{n(n-1)(2n+1)}{6}$$
 
 ### Decision tree
 
+用有限的抽象来表述无限的算法。
+
+
+
+## Week 2-Recursion
+
+**How to compute recursion complexity function**
+
+*注意：书写递归方程时，由于要保证输入为int，常添加*$\lfloor x\rfloor$。
+
+
+
+三大方法：
+
+-   往里代-替换法！
+-   特征方程
+-   递归树->master定理
+    -   $E=log_cb$。
+        -   每次均分为b个分支
+        -   问题规模变成原来的$\frac{1}{c}$。
+
