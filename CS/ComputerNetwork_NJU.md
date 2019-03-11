@@ -60,6 +60,28 @@ TBD:Pic on PDF 51
 
 #### Throughput
 
+## Week 3
+
+### Laying
+
+pros & cons 
+
+### Data link
+
+#### Main function
+
+-   Framing-封装
+-   Link manage-决定谁可以通信
+-   Reliable-WiFi一次发送双倍的包
+
+
+
+
+
+Random access MAC protocol
+
+CSMA collisions???
+
 
 
 ### Units
