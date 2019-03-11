@@ -38,3 +38,16 @@ yik@lamda.nju.edu.cn 易坤
 
 Automatic discovery regularities in data.
 
+
+
+## Math basics
+
+
+
+Q
+
+柯西施瓦zi？
+
+谱分解
+
+矩阵求导，向量在下s？
