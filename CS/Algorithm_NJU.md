@@ -125,8 +125,22 @@ $$\sum\limits^n_{i=1}x^2=\frac{n(n-1)(2n+1)}{6}$$
     -   注意：$\varepsilon$必须**大于零**。如果无法找到大于零的$\varepsilon$，就不能使用两条规则。
         -   比如$T(n) = 2 T(n / 2) + n log n​$。
 
+## Week 3-Quicksort
+
+*排序算法实际上需要消除逆序对inversion pairs。*
+
+*证明$\Theta\iff O\wedge\Omega$*.
+
+## Review-Tutorial 1
+
+### Useful $\sum$ Formulae
+
+**TBD：** here.
 
 
-Q
+
+
+
+# Q
 
 特征方程实际上没什么用？
