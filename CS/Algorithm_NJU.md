@@ -121,8 +121,22 @@ $$\sum\limits^n_{i=1}x^2=\frac{n(n-1)(2n+1)}{6}$$
         -   每次均分为b个分支
         -   问题规模变成原来的$\frac{1}{c}$。
 
+## Week 3-Quicksort
+
+*排序算法实际上需要消除逆序对inversion pairs。*
+
+*证明$\Theta\iff O\wedge\Omega$*.
+
+## Review-Tutorial 1
+
+### Useful $\sum$ Formulae
+
+**TBD：** here.
 
 
-Q
+
+
+
+# Q
 
 特征方程实际上没什么用？
