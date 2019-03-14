@@ -19,28 +19,54 @@ sudo pacman -S visual-studio-code-bin
 
 **Tips:该配置文件默认使用了ttf-dejavu-sans-mono-powerline-git字体。**
 
+*更新：失败后自动清除多余的文件*
+
 ```json
 {
-    "window.zoomLevel": 2,
-    "editor.fontSize": 17,
-    "editor.fontFamily": "'Dejavu Sans Mono for Powerline', 'monospace'",
-
-    "latex-workshop.latex.recipes": [
-        {
-          "name": "xelatex",
-          "tools": ["xelatex"]
-        }
-      ],
-      "latex-workshop.latex.tools": [
-        {
-          "name": "xelatex",
-          "command": "xelatex",
-          "args": [
-            "%DOC%.tex"
-          ]
-        }
-    ],
-    "latex-workshop.view.pdf.viewer": "tab"
+  "window.zoomLevel": 1,
+  "editor.fontSize": 17,
+  "editor.fontFamily": "'Dejavu Sans Mono for Powerline', 'Noto Serif CJK SC', 'Noto Sans Mono CJK SC','monospace'",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "xelatex",
+      "tools": [
+        "xelatex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "%DOC%.tex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk"
+  ],
+  "latex-workshop.view.pdf.viewer": "tab",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Material Theme Darker"
 }
 ```
 
