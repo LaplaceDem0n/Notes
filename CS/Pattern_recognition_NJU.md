@@ -6,7 +6,9 @@
 
 课程主页：
 
-www.nju.edu.cn/wujx
+https://cs.nju.edu.cn/wujx/
+
+https://cs.nju.edu.cn/wujx/teaching_PR.html
 
 
 
