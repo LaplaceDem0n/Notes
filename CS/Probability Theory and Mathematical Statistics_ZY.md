@@ -92,4 +92,18 @@
         -   若$X\sim f(x)=\frac{1}{b-a}，当a\leq x\leq b​$
         -   $X\sim f(x)=0，其他情况​$
         -   则称$X\sim U[a,b]$
-        -   
+-   指数分布
+    -   公式
+        -   若$X\sim f(x)=\lambda e^{-\lambda x},x>0$
+        -   $X\sim f(x)=0,x\leq0$
+        -   则称$X\sim E_x(\lambda),(\lambda > 0)​$
+    -   $\lambda $称为失效率，$EX=\frac {1}{\lambda}$
+-   正态分布
+    -   公式
+        -   若$X\sim f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}​$
+    -   记号
+        -   $X\sim N(\mu,\sigma^2)​$
+        -   若$\mu=0,\sigma^2=1,\sigma=1$,记作$X\sim \varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$。即标准正态分布，称$X\sim N(0,1)$。
+
+### 例题分析
+
