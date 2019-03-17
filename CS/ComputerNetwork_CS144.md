@@ -458,15 +458,57 @@ ATM-Asynchronous transfer-mode.
 
 ### 5-0: Applications and NATs
 
-
-
-
+NAT->DNS->HTTP
 
 ### 5-1: Network Address Translation
 
+What NAT does: translate internal/external ip address.
+
+Nice advantages:security
+
+Example: rewrite ip address & port number
+
+Problem:
+
+```python
+问题5-1A
+1/1点（分级）
+假设所有32位IPv4地址空间都可用于公共地址分配，除了为NAT后面的私有地址保留的10.0.0.0/8范围。（没有其他保留，多播或特殊用途地址。）只有一个NAT，我们在整个网络中可以拥有的最大总主机数是多少（不包括NAT）？
+
+(2**32-2**24)+(2**24-1)=4294967295
+ 
+提示：考虑没有10.0.0.0/8的IPv4地址空间中有多少个地址。
+
+不要忘记删除NAT的公共地址。
+```
+
 ### 5-2: NATs - Types
 
+-   **完全圆锥型NAT** Full Cone NAT
+    -   regardless of IP, translate between port pairs
+    -   一旦一个内部地址（iAddr:port）映射到外部地址（eAddr:port），所有发自iAddr:port的包都经由eAddr:port向外发送。任意外部主机都能通过给eAddr:port发包到达iAddr:port（注：port不需要一样）
+-   **受限圆锥型NAT** Address-Restricted cone NAT
+    -   内部客户端必须首先发送数据包到对方（IP=X.X.X.X），然后才能接收来自X.X.X.X的数据包。在限制方面，唯一的要求是数据包是来自X.X.X.X。
+    -   内部地址（iAddr:port1）映射到外部地址（eAddr:port2），所有发自iAddr:port1的包都经由eAddr:port2向外发送。外部主机（hostAddr:any）能通过给eAddr:port2发包到达iAddr:port1。（注：any指外部主机源端口不受限制，但是目的端口必须是port2。只有外部主机数据包的目的IP 为 内部客户端的ip，且目的端口为port2时数据包才被放行。）
+-   **端口受限圆锥型NAT ** Port-Restricted cone NAT
+    -   类似受限制锥形NAT（**Restricted cone NAT**），但是还有端口限制。
+    -   一旦一个内部地址（iAddr:port1）映射到外部地址（eAddr:port2），所有发自iAddr:port1的包都经由eAddr:port2向外发送。
+    -   **在受限圆锥型NAT**基础上增加了外部主机源端口必须是固定的。
+-   对称NAT Symmetric NAT
+    -   每一个来自相同内部IP与端口，到一个特定目的地地址和端口的请求，都映射到一个独特的外部IP地址和端口。
+    -   只有曾经收到过内部主机数据的外部主机，才能够把封包发回
+
+![img](ComputerNetwork_CS144.assets/800px-Full_Cone_NAT.svg.png)
+
+![img](ComputerNetwork_CS144.assets/800px-Restricted_Cone_NAT.svg.png)
+
+![img](ComputerNetwork_CS144.assets/800px-Port_Restricted_Cone_NAT.svg.png)
+
+![img](ComputerNetwork_CS144.assets/800px-Symmetric_NAT.svg.png)
+
 ### 5-3: NATs - Implications
+
+
 
 ### 5-4: NATs - Operation
 
