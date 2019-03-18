@@ -86,7 +86,15 @@ CD-冲突检测
 
 
 
-Ethernet最短包长度64Bytes。
+Ethernet最短包长度64Bytes。如果太短，会在没有监听到的情况下发包，反而不知道自己的包被干涉。
+
+
+
+## Week4
+
+### Spanning tree approach
+
+
 
 
 
@@ -200,7 +208,7 @@ enum
 #endif /* !__USE_KERNEL_IPV6_DEFS */
 ```
 
-
+跳过了Header？？
 
 ### 入门PDF阅读
 
