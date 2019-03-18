@@ -508,7 +508,7 @@ Problem:
 
 ### 5-3: NATs - Implications
 
-
+Hole-punching
 
 ### 5-4: NATs - Operation
 
