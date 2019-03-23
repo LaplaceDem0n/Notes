@@ -514,7 +514,14 @@ Hole-punching
 
 ### 5-5: HTTP
 
-### 5-6: HTTP/1.1 Keep-alive
+-   定义
+    -   超文本标记语言
+-   Request format
+-   Delay for web page
+
+### 5-6: HTTP/1.1 Keep-alive Header
+
+
 
 ### 5-7: BitTorrent
 
