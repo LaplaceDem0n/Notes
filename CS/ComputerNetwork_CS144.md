@@ -524,6 +524,13 @@ Problem:
 
 ### 5-5: HTTP
 
+-   定义
+    -   超文本标记语言
+-   Request format
+-   Delay for web page
+
+### 5-6: HTTP/1.1 Keep-alive Header
+
 #### A cornerstone(基石) on interent’s history
 
 
