@@ -508,11 +508,32 @@ Problem:
 
 ### 5-3: NATs - Implications
 
-Hole-punching
+#### Hole-punching
+
+> **打孔**（或有时**打孔**）是[计算机网络中](https://www.wikiwand.com/en/Computer_networking)用于在两方之间建立直接连接的技术，其中一方或两方都在[防火墙](https://www.wikiwand.com/en/Firewall_(networking))后面或在使用[网络地址转换](https://www.wikiwand.com/en/Network_address_translation)（NAT）的[路由器](https://www.wikiwand.com/en/Router_(computing))后面。要打孔，每个客户端都连接到一个不受限制的第三方服务器，该服务器临时存储外部和内部[地址](https://www.wikiwand.com/en/Network_address)和[端口](https://www.wikiwand.com/en/Port_(computer_networking))每个客户的信息。然后，服务器将每个客户端的信息中继到另一个客户端，并使用该信息，每个客户端尝试建立直接连接; 由于使用有效端口号的连接，限制性防火墙或路由器接受并转发每侧的传入数据包。
+
+#### NAT给现代互联网带来的影响
+
+互联网的新沙漏：在IP层之上只有ICMP、TCP、UDP三层，其他因为无法被NAT广泛支持，所以逐渐不用了。
 
 ### 5-4: NATs - Operation
 
+当NAT收到一个抵达未使用过的port的包时，NAT表现得就像一个普通的IP设备。如80端口的网页管理界面。
+
+带读RFC。
+
 ### 5-5: HTTP
+
+-   定义
+    -   超文本标记语言
+-   Request format
+-   Delay for web page
+
+### 5-6: HTTP/1.1 Keep-alive Header
+
+#### A cornerstone(基石) on interent’s history
+
+
 
 ### 5-6: HTTP/1.1 Keep-alive
 
