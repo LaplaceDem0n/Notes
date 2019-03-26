@@ -1,0 +1,37 @@
+# ApplicationForHokkaido
+
+## SelectingCourse
+
+| 19   | ２学期 2nd Semester | 職業指導 Career Guidance                    | 木村　保茂(大学院工学研究院) KIMURA YASUSHIGE(Faculty of Engineering) | 水2,水3 Wed.2,Wed.3                                          | 4〜                 |
+| ---- | ------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------- |
+|      | 117                 | ２学期（秋ターム） 2nd Semester (Fall Term) | ヒューマン・サイバネティクス Human Cybernetics               | 中村　篤祥(大学院情報科学研究科) 瀧川　一学(大学院情報科学研究科) Atsuyoshi NAKAMURA(Graduate School of Information Science and Technology) Ichigaku TAKIGAWA(Graduate School of Information Science and Technology) | 月3,木3 Mon.3,Thu.3 |
+
+| 118  | ２学期（冬ターム） 2nd Semester (Winter Term) | マルチメディア通信システム Multi-media Communication Systems | 宮永　喜一(大学院情報科学研究科) 筒井　弘(大学院情報科学研究科) Yoshikazu MIYANAGA(Graduate School of Information Science and Technology) Hiroshi TSUTSUI(Graduate School of Information Science and Technology) | 火3,木2 Tue.3,Thu.2                                          | 4〜                 |
+| ---- | --------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------- |
+|      | 124                                           | ２学期（秋ターム） 2nd Semester (Fall Term)                  | コンピュータグラフィックス Computer Graphics                 | 坂本　雄児(大学院情報科学研究科) Yuji SAKAMOTO(Graduate School of Information Science and Technology) | 火2,木2 Tue.2,Thu.2 |
+
+|      | 125  | ２学期（冬ターム） 2nd Semester (Winter Term) | ソフトウェア工学 Software Engineering | 栗原　正仁(大学院情報科学研究科) 小山　聡(大学院情報科学研究科) Masahito KURIHARA(Graduate School of Information Science and Technology) Satoshi OYAMA(Graduate School of Information Science and Technology) | 木2,金4 Thu.2,Fri.4 | 3〜  |      |
+| ---- | ---- | --------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ | ------------------- | ---- | ---- |
+|      | 126  | ２学期（秋ターム） 2nd Semester (Fall Term)   | パターン認識 Pattern Recognition      | 中村　篤祥(大学院情報科学研究科) 瀧川　一学(大学院情報科学研究科) Atsuyoshi NAKAMURA(Graduate School of Information Science and Technology) Ichigaku TAKIGAWA(Graduate School of Information Science and Technology) | 月3,木3 Mon.3,Thu.3 | 3〜  |      |
+
+| 127？？                 | ２学期（秋ターム） 2nd Semester (Fall Term) | 確率過程 Stochastic Processes                                | 水田　正弘(情報基盤センター) 南　弘征(情報基盤センター) Masahiro MIZUTA(Information Initiative Center) Hiroyuki MINAMI(Information Initiative Center) | 水5,金4 Wed.5,Fri.4                                         | 3〜  |
+| ----------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- | ---- |
+| 130这门课看起来非常硬核 | ２学期 2nd Semester                         | コンピュータサイエンス実験Ⅱ Experiment in Computer Science Ⅱ | 吉岡　真治(大学院情報科学研究科) 今井　英幸(大学院情報科学研究科) 大久保　好章(大学院情報科学研究科) 田中　章(大学院情報科学研究科) 中村　篤祥(大学院情報科学研究科) 髙井　昌彰(情報基盤センター) 瀧川　一学(大学院情報科学研究科) 岩下　武史(情報基盤センター) 飯塚　博幸(大学院情報科学研究科) 深谷　猛(情報基盤センター) Masaharu YOSHIOKA(Graduate School of Information Science and Technology) Hideyuki IMAI(Graduate School of Information Science and Technology) Yoshiaki OHKUBO(Graduate School of Information Science and Technology) Akira TANAKA(Graduate School of Information Science and Technology) Atsuyoshi NAKAMURA(Graduate School of Information Science and Technology) Yoshiaki TAKAI(Information Initiative Center) Ichigaku TAKIGAWA(Graduate School of Information Science and Technology) Takeshi IWASHITA(Information Initiative Center) Hiroyuki IIZUKA(Graduate School of Information Science and Technology) Takeshi FUKAYA(Information Initiative Center) | 月4,月5,火4,火5,金1,金2 Mon.4,Mon.5,Tue.4,Tue.5,Fri.1,Fri.2 | 3〜  |
+
+| 131  | ２学期（秋ターム） 2nd Semester (Fall Term)   | データベースと情報検索 Database and Information Retrieval    | 吉岡　真治(大学院情報科学研究科) 喜田　拓也(大学院情報科学研究科) Masaharu YOSHIOKA(Graduate School of Information Science and Technology) Takuya KIDA(Graduate School of Information Science and Technology) | 火3,金3 Tue.3,Fri.3 | 3〜  |
+| ---- | --------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------- | ---- |
+| 132  | ２学期（冬ターム） 2nd Semester (Winter Term) | ヒューマンコンピュータインタラクション Human Computer Interaction | 小野　哲雄(大学院情報科学研究科) 坂本　大介(大学院情報科学研究科) Tetsuo ONO(Graduate School of Information Science and Technology) Daisuke SAKAMOTO(Graduate School of Information Science and Technology) | 火3,水4 Tue.3,Wed.4 | 3〜  |
+
+| 133  | ２学期（冬ターム） 2nd Semester (Winter Term) | プログラム理論と言語 Programming Theory and Language        | 有村　博紀(大学院情報科学研究科) Hiroki ARIMURA(Graduate School of Information Science and Technology) | 水2,木1 Wed.2,Thu.1 | 3〜  |      |
+| ---- | --------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------ | ------------------- | ---- | ---- |
+| 134  | ２学期（秋ターム） 2nd Semester (Fall Term)   | 計算量と暗号理論 Computational Complexity and Cryptography  | 飯田　勝吉(情報基盤センター) 南　弘征(情報基盤センター) Katsuyoshi IIDA(Information Initiative Center) Hiroyuki MINAMI(Information Initiative Center) | 火2,木2 Tue.2,Thu.2 | 3〜  |      |
+| 135  | ２学期（冬ターム） 2nd Semester (Winter Term) | 情報ネットワーク Information Networks                       | 棟朝　雅晴(情報基盤センター) 髙井　昌彰(情報基盤センター) 杉木　章義(情報基盤センター) Masaharu MUNETOMO(Information Initiative Center) Yoshiaki TAKAI(Information Initiative Center) Akiyoshi SUGIKI(Information Initiative Center) | 水3,木1 Wed.3,Thu.1 | 3〜  |      |
+| 136  | ２学期 2nd Semester                           | 情報解析学演習 Exercise in Introductory Functional Analysis | 田中　章(大学院情報科学研究科) Akira TANAKA(Graduate School of Information Science and Technology) | 木4 Thu.4           | 3〜  |      |
+
+| 156  | ２学期 2nd Semesterq                        | ロボティクス Robotics         | 田中　孝之(大学院情報科学研究科) Takayuki TANAKA(Graduate School of Information Science and Technology) | 木1 Thu.1           | 4〜  |
+| ---- | ------------------------------------------- | ----------------------------- | ------------------------------------------------------------ | ------------------- | ---- |
+| 158  | ２学期（秋ターム） 2nd Semester (Fall Term) | 確率過程 Stochastic Processes | 水田　正弘(情報基盤センター) 南　弘征(情報基盤センター) Masahiro MIZUTA(Information Initiative Center) Hiroyuki MINAMI(Information Initiative Center) | 水5,金4 Wed.5,Fri.4 | 4〜  |
+
+| 210  | ２学期（冬ターム） 2nd Semester (Winter Term) | プログラム理論と言語 Programming Theory and Language | 有村　博紀(大学院情報科学研究科) Hiroki ARIMURA(Graduate School of Information Science and Technology) | 水2,木1 Wed.2,Thu.1 | 3〜  |
+| ---- | --------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------ | ------------------- | ---- |
+|      |                                               |                                                      |                                                              |                     |      |
