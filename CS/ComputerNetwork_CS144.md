@@ -581,7 +581,30 @@ Problem:
 
 ### 7-1: Shannon Capacity and Modulation
 
+**Shannon Capacity**
+
+$Capacity=Bandwidth*\log_2(1+\frac{SignalStrenth}{Noise})$
+
+It’s the upper bound of capacity.
+
+
+
+**Analog signals**
+
+1. ASK-调幅
+2. FSK-调频
+3. (B\Q)PSK-调相位
+4. QAM-同时调幅度和频率
+
+
+
+**IQ modulation**-IQ调制
+
 ### 7-2: Bit Errors
+
+Coding Gain-The 2th/1st layer bits ratio.
+
+Caused by redundancy,which is a must.
 
 ### 7-3: Clocks
 
