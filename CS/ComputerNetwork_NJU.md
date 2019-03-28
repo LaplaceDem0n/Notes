@@ -226,3 +226,16 @@ SOCK_RAW包含IP header以及其他subsequent header
 
 
 
+
+
+# Homework
+
+| *Deadline* | *Homework*                                                   |
+| ---------- | ------------------------------------------------------------ |
+| *Mar 21*   | *Introduction: (Textbook Charpter 1: R12, R23, R24, R25)*    |
+| *Apr 4*    | *Direct Link Networks: (Textbook Charpter 5: R4, R5, R6, R8, P3, P5, P6, P8, P10, P18, P19, P23, P24, P25, P26) (Textbook Charpter 6: R7, P5, P6, P8)* |
+| *Apr 18*   | *Packet Switching Networks (Textbook Charpter 4: R1, R2, R21, P1, P2, P26, P28, P30, P34)* |
+| *May 2*    | *Internetworking (Text book Charpter 4: R14, R16, R19, R20, R23, R29, R35, R36, P13, P17, P22, P35, P37, P45)* |
+| *May 16*   | *End-to-End Protocols (Textbook Charpter 3: R5, R8, R14, P1, P19, P27, P32, P40, P50, P52)* |
+| *May 30*   | *Congestion Control and QoS (Textbook Charpter 7: R19, P1, P3, P5, P18, P20)* |
+| *Jun 13*   | *Network Security (Textbook Charpter 8: R5, R6, R15, R23, P3, P7, P8, P9, P16, P18, P19)* |
