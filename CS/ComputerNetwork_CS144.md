@@ -608,6 +608,8 @@ Caused by redundancy,which is a must.
 
 ### 7-3: Clocks
 
+s
+
 ### 7-4: FEC and Reed-Solomon
 
 ### 7-5: MAC and CSMA/CD

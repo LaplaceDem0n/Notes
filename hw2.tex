@@ -119,21 +119,22 @@
 假设两个节点开始同时在速率R的广播信道上发送长度为L的分组。将两个节点之间的传播延迟表示为$d_{prop}$。 如果$d_{prop}$ <$\frac{L}{R}$会有冲突吗？ 为什么或者为什么不？
 }
 \paragraph*{答：} 
-\begin{itemize}
-    \item 
-\end{itemize}
-
-
+%啥？
 
 \subsection*{R5}
 \paragraph*{In Section 5.3, we listed four desirable characteristics of a broadcast channel. Which of these characteristics does slotted ALOHA have? Which of these characteristics does token passing have?\\
 在5.3节中，我们列出了广播频道的四个理想特征。 ALOHA有哪些特色？ 令牌传递中有哪些特征？
 }
-\paragraph*{答：} 
+\paragraph*{答：}  
+ALOHA有这些特色：\\
 \begin{itemize}
     \item 
 \end{itemize}
 
+令牌传递中有这些特征：\\
+\begin{itemize}
+    \item 
+\end{itemize}
 \subsection*{R6}
 \paragraph*{In CSMA/CD, after the fifth collision, what is the probability that a node chooses K = 4? The result K = 4 corresponds to a delay of how many seconds?\\
 在CSMA/CD中，在第五次碰撞之后，节点选择K = 4的概率是多少？ 结果K=4对应于多少秒的延迟?}
@@ -205,45 +206,21 @@ c. 一般来说，假设有N个节点，其中节点A具有重传概率2p，所�
 \end{itemize}
 
 \subsection*{P18}
-\paragraph*{Suppose nodes A and B are on the same 10 Mbps broadcast channel, and the
-propagation delay between the two nodes is 325 bit times. Suppose CSMA/CD
-and Ethernet packets are used for this broadcast channel. Suppose node A begins
-transmitting a frame and, before it finishes, node B begins transmitting a frame.
-Can A finish transmitting before it detects that B has transmitted? Why or why
-not? If the answer is yes, then A incorrectly believes that its frame was success-
-fully transmitted without a collision. Hint: Suppose at time t = 0 bits, A begins
-transmitting a frame. In the worst case, A transmits a minimum-sized frame of
-512 + 64 bit times. So A would finish transmitting the frame at t = 512 + 64 bit
-times. Thus, the answer is no, if B’s signal reaches A before bit time t = 512 + 64
-bits. In the worst case, when does B’s signal reach A?\\}
+\paragraph*{Suppose nodes A and B are on the same 10 Mbps broadcast channel, and the propagation delay between the two nodes is 325 bit times. Suppose CSMA/CD and Ethernet packets are used for this broadcast channel. Suppose node A begins transmitting a frame and, before it finishes, node B begins transmitting a frame. Can A finish transmitting before it detects that B has transmitted? Why or why not? If the answer is yes, then A incorrectly believes that its frame was successfully transmitted without a collision. Hint: Suppose at time t = 0 bits, A begins transmitting a frame. In the worst case, A transmits a minimum-sized frame of 512 + 64 bit times. So A would finish transmitting the frame at t = 512 + 64 bit times. Thus, the answer is no, if B’s signal reaches A before bit time t = 512 + 64 bits. In the worst case, when does B’s signal reach A?\\}
 \paragraph*{答：} 
 \begin{itemize}
     \item 
 \end{itemize}
 
 \subsection*{P19}
-\paragraph*{bits. In the worst case, when does B’s signal reach A?
-P19. Suppose nodes A and B are on the same 10 Mbps broadcast channel, and
-the propagation delay between the two nodes is 245 bit times. Suppose A
-and B send Ethernet frames at the same time, the frames collide, and then
-A and B choose different values of K in the CSMA/CD algorithm. Assuming no other nodes are active, can the retransmissions from A and B collide? For
-our purposes, it suffices to work out the following example. Suppose A and B
-begin transmission at t = 0 bit times. They both detect collisions at t = 245 bit
-times. Suppose K A = 0 and K B = 1. At what time does B schedule its retrans-
-mission? At what time does A begin transmission? (Note: The nodes must wait
-for an idle channel after returning to Step 2—see protocol.) At what time does
-A’s signal reach B? Does B refrain from transmitting at its scheduled time?\\}
+\paragraph*{Suppose nodes A and B are on the same 10 Mbps broadcast channel, and the propagation delay between the two nodes is 245 bit times. Suppose A and B send Ethernet frames at the same time, the frames collide, and then A and B choose different values of K in the CSMA/CD algorithm. Assuming no other nodes are active, can the retransmissions from A and B collide? For our purposes, it suffices to work out the following example. Suppose A and B begin transmission at t = 0 bit times. They both detect collisions at t = 245 bit times. Suppose K A = 0 and K B = 1. At what time does B schedule its retransmission? At what time does A begin transmission? (Note: The nodes must wait for an idle channel after returning to Step 2—see protocol.) At what time does A’s signal reach B? Does B refrain from transmitting at its scheduled time?\\}
 \paragraph*{答：} 
 \begin{itemize}
     \item 
 \end{itemize}
 
 \subsection*{P23}
-\paragraph*{within the frame at each of these points in time.
-P23. Consider Figure 5.15. Suppose that all links are 100 Mbps. What is the maxi-
-mum total aggregate throughput that can be achieved among the 9 hosts and
-2 servers in this network? You can assume that any host or serrver can send
-to any other host or server. Why?\\}
+\paragraph*{Consider Figure 5.15. Suppose that all links are 100 Mbps. What is the maximum total aggregate throughput that can be achieved among the 9 hosts and 2 servers in this network? You can assume that any host or serrver can send to any other host or server. Why?\\}
 \paragraph*{答：} 
 \begin{itemize}
     \item 
