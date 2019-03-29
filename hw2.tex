@@ -205,6 +205,8 @@ c. 一般来说，假设有N个节点，其中节点A具有重传概率2p，所�
     \item 
 \end{itemize}
 
+\marginnote{写到这里发现其实第七版中文教材与第六版英文教材的习题题号一致只有章节不同以下略去中文翻译}
+
 \subsection*{P18}
 \paragraph*{Suppose nodes A and B are on the same 10 Mbps broadcast channel, and the propagation delay between the two nodes is 325 bit times. Suppose CSMA/CD and Ethernet packets are used for this broadcast channel. Suppose node A begins transmitting a frame and, before it finishes, node B begins transmitting a frame. Can A finish transmitting before it detects that B has transmitted? Why or why not? If the answer is yes, then A incorrectly believes that its frame was successfully transmitted without a collision. Hint: Suppose at time t = 0 bits, A begins transmitting a frame. In the worst case, A transmits a minimum-sized frame of 512 + 64 bit times. So A would finish transmitting the frame at t = 512 + 64 bit times. Thus, the answer is no, if B’s signal reaches A before bit time t = 512 + 64 bits. In the worst case, when does B’s signal reach A?\\}
 \paragraph*{答：} 
@@ -234,14 +236,17 @@ c. 一般来说，假设有N个节点，其中节点A具有重传概率2p，所�
 \end{itemize}
 
 \subsection*{P25}
-\paragraph*{Why would the token-ring protocol be inefficient if a LAN had a very large\\}
+\paragraph*{Suppose that all the switches in Figure 5.15 are replaced by hubs. All links are 100 Mbps. Now answer the questions posed in problem P23. \\}
 \paragraph*{答：} 
 \begin{itemize}
     \item 
 \end{itemize}
 
 \subsection*{P26}
-\paragraph*{Why would the token-ring protocol be inefficient if a LAN had a very large\\}
+\paragraph*{Let’s consider the operation of a learning switch in the context of a network in which 6 nodes labeled A through F are star connected into an Ethernet switch. Suppose that\\
+(i) B sends a frame to E,\\
+(ii) E replies with a frame to B,\\
+(iii) A sends a frame to B, (iv) B replies with a frame to A. The switch table is initially empty. Show the state of the switch table before and after each of these events. For each of these events, identify the link(s) on which the transmitted frame will be forwarded, and briefly justify your answers.\\}
 \paragraph*{答：} 
 \begin{itemize}
     \item 
@@ -249,28 +254,56 @@ c. 一般来说，假设有N个节点，其中节点A具有重传概率2p，所�
 
 \section*{Direct\ Link\ Networks:\ Textbook\ Charpter\ 6}
 \subsection*{R7}
-\paragraph*{Why would the token-ring protocol be inefficient if a LAN had a very large\\}
+\paragraph*{R7. Why are acknowledgments used in 802.11 but not in wired Ethernet?\\}
 \paragraph*{答：} 
 \begin{itemize}
     \item 
 \end{itemize}
 
 \subsection*{P5}
-\paragraph*{Why would the token-ring protocol be inefficient if a LAN had a very large\\}
+\paragraph*{Suppose there are two ISPs providing WiFi access in a particular café, with each ISP operating its own AP and having its own IP address block.\\
+a. Further suppose that by accident, each ISP has configured its AP to operate over channel 11. Will the 802.11 protocol completely break down in this situation? Discuss what happens when two stations, each associated with a different ISP, attempt to transmit at the same time.\\
+b. Now suppose that one AP operates over channel 1 and the other over channel 11. How do your answers change? \\}
 \paragraph*{答：} 
 \begin{itemize}
     \item 
 \end{itemize}
 
 \subsection*{P6}
-\paragraph*{Why would the token-ring protocol be inefficient if a LAN had a very large\\}
+\paragraph*{In step 4 of the CSMA/CA protocol, a station that successfully transmits a frame begins the CSMA/CA protocol for a second frame at step 2, rather than at step 1. What rationale might the designers of CSMA/CA have had in mind by having such a station not transmit the second frame immediately (if the
+channel is sensed idle)?\\}
 \paragraph*{答：} 
 \begin{itemize}
     \item 
 \end{itemize}
 
 \subsection*{P8}
-\paragraph*{Why would the token-ring protocol be inefficient if a LAN had a very large\\}
+\paragraph*{Consider the scenario shown in Figure 6.33, in which there are four wireless nodes, A, B, C, and D. The radio coverage of the four nodes is shown via the shaded ovals; all nodes share the same frequency. When A transmits, it can only be heard/received by B; when B transmits, both A and C can hear/receive from B; when C transmits, both B and D can hear/receive from C; when D transmits, only C can hear/receive from D. Suppose now that each node has an infinite supply of messages that it wantsto send to each of the other nodes. If a message’s destination is not an immediate neighbor, then the message must be relayed. For example, if A wants to send to D, a message from A must first be sent to B, which then sends the message to C, which then sends the message to D. Time is slotted, with a message transmission time taking exactly one time slot, e.g., as in slotted Aloha. During a slot, a node can do one of the following: \\
+(i) send a message;\\
+(ii) receive a message (if exactly one message is being sent to it),\\
+(iii) remain silent. As always, if a node hears two or more simultaneous transmissions, a collision occurs and none of the transmitted messages are received successfully. You can assume here that there are no bit-level errors, and thus if exactly one message is sent, it will be received correctly by those within the\\}
+\subparagraph*{a. Suppose now that an omniscient controller (i.e., a controller that knows the state of every node in the network) can command each node to do whatever it (the omniscient controller) wishes, i.e., to send a message, to receive a message, or to remain silent. Given this omniscient controller, what is the maximum rate at which a data message can be transferred from C to A, given that there are no other messages between any other source/destination pairs?}
+\paragraph*{答：} 
+\begin{itemize}
+    \item 
+\end{itemize}
+\subparagraph*{b. Suppose now that A sends messages to B, and D sends messages to C. What is the combined maximum rate at which data messages can flow from A to B and from D to C?}
+\paragraph*{答：} 
+\begin{itemize}
+    \item 
+\end{itemize}
+\subparagraph*{c. Suppose now that A sends messages to B, and C sends messages to D.Suppose now that A sends messages to B, and C sends messages to D.
+What is the combined maximum rate at which data messages can flow from A to B and from C to D?}
+\paragraph*{答：} 
+\begin{itemize}
+    \item 
+\end{itemize}
+\subparagraph*{d. Suppose now that the wireless links are replaced by wired links. Repeat questions (a) through (c) again in this wired scenario.}
+\paragraph*{答：} 
+\begin{itemize}
+    \item 
+\end{itemize}
+\subparagraph*{e. Now suppose we are again in the wireless scenario, and that for every data message sent from source to destination, the destination will send an ACK message back to the source (e.g., as in TCP). Also suppose that each ACK message takes up one slot. Repeat questions (a) – (c) above for this scenario.} 
 \paragraph*{答：} 
 \begin{itemize}
     \item 
