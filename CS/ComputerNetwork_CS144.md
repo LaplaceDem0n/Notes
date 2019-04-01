@@ -606,13 +606,49 @@ Coding Gain-The 2th/1st layer bits ratio.
 
 Caused by redundancy,which is a must.
 
+
+
+```
+问题7-2C
+考虑64-QAM调制的简化形式，其支持150 Mbps的比特率。假设它使用5/6的编码增益，它每秒在线上放多少个符号（以百万计）？
+30
+```
+
+说明：每个符号的位数为64-QAM = log2（64）= 6.由于bitrate = bits / symbol $$ \times $$符号率$$ \times $$编码增益，符号率= $$ {150 Mbps \times {6\over 5}\over 6} ​$$ =每秒3000万个符号。
+
 ### 7-3: Clocks
 
-s
+*并不在NJU课程的范围内，暂时跳过。*
+
+一般有Start和End的特殊模式信号使得收发两方同步。
+
+```
+问题7-3A
+红外遥控器使用异步通信使用1MHz时钟发送64位数据。两端的时钟相差最多10kHz。以下哪项陈述属实？
+
+
+如果接收器的时钟比发送器的时钟慢10kHz，那么我们将计算两次。
+如果接收器的时钟比发送器的时钟快10kHz，那么我们将计算两次。 正确
+没有风险我们会错过一点，或者计算两次。
+如果我们将发送的数据量增加一倍，我们将保证可靠地交付。
+
+说明
+b是真的，因为我们将在0.5 / 1％= 50bit次之后加倍计数。
+
+提示：
+10kHz是1MHz的1％。
+1％= 10,000 ppm
+```
+
+[回头做练习](https://lagunita.stanford.edu/courses/Engineering/Networking-SP/SelfPaced/courseware/8470e3e5702245579e28e508065118ee/9eeab06036284fa981e748afe5963914/?child=first)
 
 ### 7-4: FEC and Reed-Solomon
 
+*并不在NJU课程的范围内，暂时跳过。*
+
 ### 7-5: MAC and CSMA/CD
+
+
 
 ### 7-6: Ethernet
 
