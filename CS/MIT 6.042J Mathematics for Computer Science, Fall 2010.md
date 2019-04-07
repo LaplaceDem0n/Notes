@@ -11,3 +11,4 @@
 ### Ideas
 
 1.  Memorized & reuse the solutions of subproblems 
+2.  
