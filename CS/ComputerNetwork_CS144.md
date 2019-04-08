@@ -648,9 +648,13 @@ b是真的，因为我们将在0.5 / 1％= 50bit次之后加倍计数。
 
 ### 7-5: MAC and CSMA/CD
 
-
+$\frac{PacketSize}{RateOfLink} \geq \frac{LengthOfLink}{SpeedOfLight}$
 
 ### 7-6: Ethernet
+
+Hubs & Switches
+
+
 
 ### 7-7: Wireless is Different
 
@@ -659,6 +663,8 @@ b是真的，因为我们将在0.5 / 1％= 50bit次之后加倍计数。
 ### 7-9: CSMA/CA
 
 ### 7-10: RTS/CTS
+
+Got here.
 
 ### 7-11: WiFi
 
