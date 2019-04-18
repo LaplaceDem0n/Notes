@@ -156,17 +156,26 @@ $$\sum\limits^n_{i=1}x^2=\frac{n(n-1)(2n+1)}{6}$$
     2.  （循环不变量）
 2.  证明算法错误
     1.  举出反例（cotunerexample）
-3.  平均时间复杂度计算
-4.  时间复杂度记号与渐进增长率
+3.  平均/最坏时间复杂度计算
+4.  时间复杂度五记号与渐进增长率
 5.  *Master定理与递归算法的复杂度计算
-    1.  *Master定理不适用的情况(PS最后两题)
-    2.  *Guess&Proof->substitution method(怎么Guess？)
+    1.  继续多练习~
+    2.  *Master定理不适用的情况(PS最后两题)
+    3.  *Guess&Proof->substitution method(怎么Guess？)
         1.  n叉树的情况与lgn有关
         2.  $\sqrt n$的情况与lglgn有关
-    3.  递归树分析（它是万能的吗？不是，但能够提供直观的推测，并便于用substitution method分析）
+    4.  递归树分析（它是万能的吗？不是，但能够提供直观的推测，并便于用substitution method分析）
         1.   设$n=2^k$或$S(n)=T(2^n)$这样的换元技巧很好用
-    4.  特征方程用得很少记不住？
+    5.  特征方程用得很少记不住？
 6.  问题难度的下界与算法的最优性（排序问题中的逆序对与更通用的对手策略证明）
+7.  Sort
+    1.  复杂度和何种情况下坏
+    2.  基于比较算法的Lower bound与决策树（review，逆序对只有2、3个的情况？——Google
+    3.  EPL
+8.  Select
+    1.  加权中位数
+    2.  对手策略
+    3.  Hash
 
 ## 复习课要注意的PS中的题目
 
