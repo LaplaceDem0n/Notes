@@ -555,6 +555,8 @@ Problem:
 
 ### 6-1: Flooding, source routing and spanning trees
 
+
+
 ### 6-2: Bellman Ford
 
 ### 6-3: Dijkstra
