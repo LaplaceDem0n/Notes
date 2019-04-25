@@ -129,6 +129,23 @@ $ms:10^{-3}s$
 
 补充阅读：英文第六版虚拟电路内容。
 
+# Week 9
+
+## BGP
+
+**main topic**:
+
+	1. route selcetion
+ 	2. route export (Gao-Rex rule)![gr](ComputerNetwork_NJU.assets/gr.png)
+
+**Detail**:
+
+	1. 4 Attrs
+
+**Issues**
+
+…
+
 
 
 

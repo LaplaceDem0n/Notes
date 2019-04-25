@@ -555,13 +555,33 @@ Problem:
 
 ### 6-1: Flooding, source routing and spanning trees
 
+在不清楚拓扑时，Flooding是有用的。
+
+在相对静态的环境下，source routing还不错，但是overhead较大。
+
 
 
 ### 6-2: Bellman Ford
 
+对应NJU和课本说的DV算法。Basics of RIP & BGP.
+
+Max run time: ~The length of the longest loop free path in the graph
+
+Convergence
+
 ### 6-3: Dijkstra
 
+对应LS算法。Basics of OSPF.
+
+Max run time: n routes -> n iteration
+
+When something changed: compute everything from scratch
+
+*结尾的视频演示太强了！*
+
 ### 6-4: Internet (RIP, OSPF) AS's
+
+
 
 ### 6-5: BGP
 
