@@ -614,7 +614,7 @@ Caused by redundancy,which is a must.
 30
 ```
 
-说明：每个符号的位数为64-QAM = log2（64）= 6.由于bitrate = bits / symbol $$ \times $$符号率$$ \times $$编码增益，符号率= $$ {150 Mbps \times {6\over 5}\over 6} ​$$ =每秒3000万个符号。
+说明：每个符号的位数为64-QAM = log2（64）= 6.由于bitrate = bits / symbol $$ \times $$符号率$$ \times $$编码增益，符号率= $$ {150 Mbps \times {6\over 5}\over 6} $$ =每秒3000万个符号。
 
 ### 7-3: Clocks
 
@@ -649,6 +649,8 @@ b是真的，因为我们将在0.5 / 1％= 50bit次之后加倍计数。
 ### 7-5: MAC and CSMA/CD
 
 $\frac{PacketSize}{RateOfLink} \geq \frac{LengthOfLink}{SpeedOfLight}$
+
+课程答题到这。
 
 ### 7-6: Ethernet
 
