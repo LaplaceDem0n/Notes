@@ -150,7 +150,19 @@ Why DFS/BFS? -> Intuitive
 2.  复杂度分析
 3.  4 Edges
 
+# Week11
 
+## Review
+
+White path theorem.
+
+
+
+## New-Applications of DFS
+
+1. Topological sort
+2. Critical path
+3. Strongly connected components
 
 # Q
 
