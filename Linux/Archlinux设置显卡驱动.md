@@ -6,10 +6,12 @@
 
 由于我的Linux系统经常移动使用，我决定使用Intel集成显卡的驱动。
 
-首先安装两个驱动：
+首先安装驱动：
+
+*注：根据[这里](https://wiki.archlinux.org/index.php/Hardware_video_acceleration)，我的笔记本上安装这个就可以*
 
 ```bash
-yay -S libva-intel-driver libva-mesa-driver
+yay -S intel-media-driver
 ```
 
 
