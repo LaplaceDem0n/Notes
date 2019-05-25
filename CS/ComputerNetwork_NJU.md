@@ -148,7 +148,44 @@ $ms:10^{-3}s$
 
 
 
+# Week13
 
+## PPT4.1 TCP basic
+
+1. Stop & wait: OK with short distance. Thoughput ~ Data/RTT.
+2. Sliding window(with buffer). 
+
+1. Cumilative/Selective ACK
+
+1. GBN(Used in data center
+2. Selective Repeat(Compare in screenshot)
+
+## PPT4.2 TCP setup & teardown
+
+MaxSegSize+IPhdr+TCPhdr=MTU
+
+esitimateRTT:K/P algorithm(see screenshot)
+
+## PPT4.3 TCP FLow Control
+
+min{CWND(Router),RWND(Reciever)}=SenderSideWindows
+
+Slow start->(ssthresh)->AIMD->Why AIMD(Theory)
+
+Summary(Screenshot)
+
+## PPT4.4 TCP Congestion control
+
+7 implications
+
+1. 不同RTT有不公平的吞吐量
+2. 需要多条TCP链接使高速Link占满
+3. 新变种：RateBasedTCPCongestionControl-用方程计算，更加稳定，对流媒体应用友好。
+4. 存在不是因为拥塞而造成的包丢失
+5. 对于短流，不适用。他们甚至没有达到ssthresh
+6. 短流也要参与Buffer里的排队
+7. 很容易Cheat
+8. …
 
 # Labs
 

@@ -138,23 +138,93 @@ $$\sum\limits^n_{i=1}x^2=\frac{n(n-1)(2n+1)}{6}$$
 
 ## Week9
 
-### 图遍历
+## 图遍历
 
 Why DFS/BFS? -> Intuitive
 
-#### 图的表示
+## 图的表示
 
-#### 从连通分量说起
+### Edge classification
 
-1.  实现
-2.  复杂度分析
-3.  4 Edges
+|  TE  |       BE        |  DE  |  CE  |      |      |
+| :--: | :-------------: | :--: | :--: | :--: | :--: |
+|  ✔   | ✘(无环时不可有) |  ✔   |  ✔   | DAG  | DFS  |
+|  ✔   |        ✔        |  ✘   |  ✘   |  UG  | DFS  |
+|  ✔   |        ✔        |  ✘   |  ✔   | DAG  | BFS  |
+|  ✔   |        ✘        |  ✘   |  ✘   |  UG  | BFS  |
 
-# Week11
+*Tips:DFS在UG上遍历而没有遇到BE时，说明G为Forest*
 
-## Review
+## 重点介绍的算法
 
-White path theorem.
+### 求联通分量
+
+- 思路：采用DFS，在传播的过程中打Tag（ccNumber）。
+- 复杂度：O(V+E)。
+- 对DFS框架的应用：preorder操作
+
+### 求节点的活动区间
+
+- 思路：应用DFS框架增加访问时间和结束时间。
+- 4个性质，感觉不是很重要？
+
+### 拓扑排序
+
+- 思路：采用DFS，在传播的过程中打Tag（ccNumber）。
+- 复杂度：O(V+E)。
+- 对DFS框架的应用：potorder操作
+
+### 关键路径
+
+- backtrack
+- nontreeedge
+
+### 强联通分量
+
+- 思路： 按照$G^T$中DFS得到的discoverTime降序进行第二次DFS
+- 复杂度：O(V+E)。
+- Tips：不能在原图中用visitTime升序……
+
+### BFS的证明
+
+**证明相等？=>不大于，不小于**
+
+### DFSonUG
+
+#### ProblemsformDAGtoUG
+
+LinkedList要存两次？如何只处理一次？
+
+通过分析，只需要处理TE和BE（非直回的情况）。
+
+（不会有CE：如果连着，必定有先后关系。如果不连着，肯定没有Edge啦）
+
+*思路：希望只处理一次->第一次有哪些情况？什么时候会有第二次？*
+
+### 二联通分量-割点-桥
+
+*思路：用别的，标记时复杂度不是特别高的属性标记层次关系（如back、est、discoverTime等）*
+
+*Tips：利用逆否命题的技巧在证明时很有用，不行就数学归纳，不过数学归纳就多了一步对X归纳递推的判断的坑。*
+
+### Greedy&MST
+
+#### Prim
+
+
+
+#### Kruskal
+
+# Q
+
+1. 证明图算法的正确性？
+2. 
+
+# Week11-13 Graph
+
+** White path theorem（不知道有啥用）**
+
+## 
 
 
 
@@ -253,9 +323,11 @@ White path theorem.
     1.  二分查找
     2.  FixHeap
 3.  O(n)
-    1.  乱序数组中取第k大/小个元素
-    2.  遍历找最大
-    3.  同时找最大最小
+    1.  取中位数
+        1.  取较小/较大的一半的数
+    2.  乱序数组中取第k大/小个元素
+    3.  遍历找最大
+    4.  同时找最大最小
 4.  O(nlgn)
     1.  对n个元素执行O(lgn)的操作
     2.  归并/快排
@@ -349,9 +421,26 @@ Dijkstra不可处理负权值情况， Bellman-Ford可以。
 
 # MIT网课补充
 
+## 图系列算法
+
+### BFS
+
+- point of implementation:avoid dups
+- a lot of applications
+- a way of get the adj list by function(instead of array) can save space, but waste time
+
+### DFS
+
+- Introduce edge classification($BE \iff \exist  topo$)
+
+
+
 ## 动态规划
+
+共性：最优子问题结构：大问题的解必定包括子问题的正确解，否则子问题可以被**替换**。
 
 DP的艺术：
 
 -   记忆。记住已经计算过的解，用更多的内存避免重复运算。
 -   自底向上(Bottom up)。
+
