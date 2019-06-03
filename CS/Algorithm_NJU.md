@@ -226,7 +226,17 @@ LinkedList要存两次？如何只处理一次？
     2.  树->考虑Root和左右子树的关系
 2.  将子问题的解组合成大问题的解
 
+# Tut7
 
+背包问题是个伪多项式问题，它其实是个NP问题，其原因是如果用$y=f(\log(W),\sum_1^n(Bin(w_i)+Bin(v_i)))$表示输入规模（以占用二进制的位数表示），问题的复杂度其实是$2^{y-x}\frac{x}{2D}$级别（D是一个大的常数）的。
+
+
+
+# Complexity
+
+1. Optimal Problem=Decision Problem
+2. P Problems: Can be solved in polynomial time
+3. NP Problems: (假设一个无限多线程的计算机来引入)Can verify an answer is correct or wrong in polynomial time.
 
 # Q
 
