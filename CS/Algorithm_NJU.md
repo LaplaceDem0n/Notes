@@ -234,9 +234,23 @@ LinkedList要存两次？如何只处理一次？
 
 # Complexity
 
-1. Optimal Problem=Decision Problem
-2. P Problems: Can be solved in polynomial time
-3. NP Problems: (假设一个无限多线程的计算机来引入)Can verify an answer is correct or wrong in polynomial time.
+1. Optimal problem=Decision problem
+2. P problems: Can be solved in polynomial time
+3. NP problems: (假设一个无限多线程的计算机来引入)Can verify an answer is correct or wrong in polynomial time.
+4. NP-Complete problems: Reduction. $\forall E\in NP, E \leq_p NP-Hard$, $NP-Complete =NP-Hard \cap NP$
+
+*Tips：如果NPC问题都是P问题，则NP=P*
+
+## Applications on complexity
+
+- Prove a given problem E is NPC
+  - SAT(or other **known NP-C problem**)$\leq_p$E
+  - $E\in NP$
+- Coping with NPC
+  - Intelligent brute force
+  - Approxiamation
+    - May be wrong/bad
+  - 启发式算法
 
 # Q
 

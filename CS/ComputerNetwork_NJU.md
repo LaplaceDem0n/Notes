@@ -187,6 +187,42 @@ Summary(Screenshot)
 7. 很容易Cheat
 8. …
 
+
+
+# Week15
+
+NAT->DNS->HTTP
+
+## HTTP
+
+- History
+- Components
+  - URL定位内容
+    - 文件
+    - 函数
+  - HTTP表达内容
+    - 用HTTP1.1举例
+
+HTTP1.1
+
+1. 使用明文表示动作，如GET\RESPONSE
+2. stateless->Cookies
+3. Performance
+   1. Indepently
+   2. Persistantly
+   3. Pipeline over same connection
+   4. Parallel connection
+   5. Caching
+      1. How
+      2. Where
+         1. Client
+         2. Forward proxy
+         3. Reverse proxy
+
+
+
+## 网络安全
+
 # Labs
 
 ## Info
