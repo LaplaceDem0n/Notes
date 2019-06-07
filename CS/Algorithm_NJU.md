@@ -489,6 +489,8 @@ DP的艺术：
 
 -   P：多项式时间可解
 -   NP：多项式时间可验证
+-   NP-Hard：不比NP简单的问题
+-   NP-Complete：NP-Hard$\cap$NP
 -   EXP：指数时间可解
 -   R：有限时间可解
 
