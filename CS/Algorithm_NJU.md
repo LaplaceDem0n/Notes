@@ -349,9 +349,54 @@ LinkedList要存两次？如何只处理一次？
         2.  维持（重点部分）
         3.  终止
 
-    
 
-## 不同复杂度能做的操作
+
+
+# 期末复习
+
+## 图系列算法
+
+### BFS
+
+- point of implementation:avoid dups
+- a lot of applications
+- a way of get the adj list by function(instead of array) can save space, but waste time
+
+### DFS
+
+- Introduce edge classification($BE \iff \exist  topo$)
+
+## 贪心算法
+
+
+
+## 动态规划
+
+共性：最优子问题结构：大问题的解必定包括子问题的正确解，否则子问题可以被**替换**。
+
+DP的艺术：
+
+- 记忆。记住已经计算过的解，用更多的内存避免重复运算。
+- 自底向上(Bottom up)。
+
+## 计算复杂性
+
+- P：多项式时间可解
+- NP：多项式时间可验证
+- NP-Hard：不比NP简单的问题
+- NP-Complete：NP-Hard$\cap$NP
+- EXP：指数时间可解
+- R：有限时间可解
+
+*Most decision problem is not in R!*
+
+程序是无穷可列的（N），但问题是无穷不可列的（R）。但是不是特别理解TAT。
+
+
+
+
+
+# 不同复杂度能做的操作
 
 1.  O(1+$\alpha$)
     1.  哈希
@@ -461,40 +506,4 @@ Dijkstra不可处理负权值情况， Bellman-Ford可以。
 
 
 # MIT网课补充
-
-## 图系列算法
-
-### BFS
-
-- point of implementation:avoid dups
-- a lot of applications
-- a way of get the adj list by function(instead of array) can save space, but waste time
-
-### DFS
-
-- Introduce edge classification($BE \iff \exist  topo$)
-
-
-
-## 动态规划
-
-共性：最优子问题结构：大问题的解必定包括子问题的正确解，否则子问题可以被**替换**。
-
-DP的艺术：
-
--   记忆。记住已经计算过的解，用更多的内存避免重复运算。
--   自底向上(Bottom up)。
-
-## 计算复杂性
-
--   P：多项式时间可解
--   NP：多项式时间可验证
--   NP-Hard：不比NP简单的问题
--   NP-Complete：NP-Hard$\cap$NP
--   EXP：指数时间可解
--   R：有限时间可解
-
-*Most decision problem is not in R!*
-
-程序是无穷可列的（N），但问题是无穷不可列的（R）。但是不是特别理解TAT。
 
