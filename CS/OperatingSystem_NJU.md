@@ -87,6 +87,14 @@ PV操作和信号量
 
 ## Storage
 
+### 页面替换算法
+
+课本P235有简要小结，Dropbox里的pdf文件有详细介绍。
+
+LRU没有Belady现象：
+
+>   LRU一般都有栈的特性，一个N+1大小的cache很自然的就包含了大小为N的cache的内容。所以随着cache大小增加，hit rate要么不变，要么提高。
+
 ## Device
 
 TBD：
