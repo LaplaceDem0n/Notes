@@ -379,6 +379,26 @@ DP的艺术：
 - 记忆。记住已经计算过的解，用更多的内存避免重复运算。
 - 自底向上(Bottom up)。
 
+DP in 5 easy steps:
+
+1.  Define subproblems
+2.  Guess (part of solution)
+3.  Recurrence
+4.  Two ways:
+    1.  **Top-down:** Recurse+memorize
+        1.  Check acyclic!
+    2.  Or **Bottom-up:** compute in topo order
+    3.  *Time=subproblems$\times$timePerSubproblem*
+5.  Solve the original problem
+
+**Typical subproblems pattern**
+
+1.  Suffixes x[i:] $\forall i$
+2.  Prefixes x[:i]$\forall i$
+3.  Substrings x[i:j] $\forall i < j$
+4.  Rooted trees r[i]
+    1.  Suffixes+Profixes
+
 ## 计算复杂性
 
 - P：多项式时间可解
