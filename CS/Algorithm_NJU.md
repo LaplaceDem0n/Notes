@@ -138,6 +138,14 @@ $$\sum\limits^n_{i=1}x^2=\frac{n(n-1)(2n+1)}{6}$$
 
 ## Week9
 
+# Week11-13 Graph
+
+** White path theorem（不知道有啥用）**
+
+
+
+
+
 ## 图遍历
 
 Why DFS/BFS? -> Intuitive
@@ -157,6 +165,8 @@ Why DFS/BFS? -> Intuitive
 
 ## 重点介绍的算法
 
+## UG-DFS/General
+
 ### 求联通分量
 
 - 思路：采用DFS，在传播的过程中打Tag（ccNumber）。
@@ -168,34 +178,44 @@ Why DFS/BFS? -> Intuitive
 - 思路：应用DFS框架增加访问时间和结束时间。
 - 4个性质，感觉不是很重要？
 
+## DAG-DFS
+
 ### 拓扑排序
 
-- 思路：采用DFS，在传播的过程中打Tag（ccNumber）。
+- 定义：对每个有向边$u\to v$，u的序列号应该比v小。
+    - 说人话：对于箭头表示u依赖v的情况求出来的课程选修顺序是逆拓扑序。
+- 思路：采用DFS，不断地取没有入度的顶点，并对其相邻节点更新新新没有入度的顶点。
+    - 如果没有入度的顶点空了图却还有边，就肯定有环，错误[Wiki。](https://www.wikiwand.com/en/Topological_sorting)
+    - 否则取顶点的顺序就是拓扑序。
 - 复杂度：O(V+E)。
-- 对DFS框架的应用：potorder操作
+- 对DFS框架的应用：postorder操作
 
 ### 关键路径
 
-- backtrack
-- nontreeedge
+- 在两种情况下更新自己的est
+
+    - backtrack
+    - nontreeedge
+
+    
 
 ### 强联通分量
 
 - 思路： 按照$G^T$中DFS得到的discoverTime降序进行第二次DFS
 - 复杂度：O(V+E)。
-- Tips：不能在原图中用visitTime升序……
+- Tips：不能在原图中用finishTime升序……
 
-### BFS的证明
+>    BFS的证明
+>
+>   **证明相等？=>不大于，不小于**
 
-**证明相等？=>不大于，不小于**
+## UG-DFS
 
-### DFSonUG
-
-#### ProblemsformDAGtoUG
+**ProblemsformDAGtoUG**
 
 LinkedList要存两次？如何只处理一次？
 
-通过分析，只需要处理TE和BE（非直回的情况）。
+*通过分析，只需要处理TE和BE（非直回的情况）。*
 
 （不会有CE：如果连着，必定有先后关系。如果不连着，肯定没有Edge啦）
 
@@ -203,17 +223,80 @@ LinkedList要存两次？如何只处理一次？
 
 ### 二联通分量-割点-桥
 
-*思路：用别的，标记时复杂度不是特别高的属性标记层次关系（如back、est、discoverTime等）*
+画图，砍瓜切菜。[Wiki。](https://www.wikiwand.com/en/Biconnected_component)
 
 *Tips：利用逆否命题的技巧在证明时很有用，不行就数学归纳，不过数学归纳就多了一步对X归纳递推的判断的坑。*
 
-### Greedy&MST
+
+
+## BFS系列应用
+
+### 判断二分图
+
+用2-染色解。
+
+### 寻找k度子图
+
+找度不够k的点，放到队列里，连同和其连接的点一起删掉，更新队列，最后返回删不掉的点组成的图即可。
+
+
+
+### Greedy&MST（BFS大胜利！）
 
 #### Prim
 
+不断寻找Fringe中距离最近的一个点加入，更新。
 
+时间复杂度为$O(E + V log V)$。
+
+适合稠密图(E~$V^2\to V^2+V\log V$)。
 
 #### Kruskal
+
+不断寻找距离最近的一个点加入，确保无环。
+
+时间复杂度为$O(E \log V)$。
+
+适合稀疏图(E~V$\to V\log V$)。
+
+## SSSP
+
+### Dijkstra
+
+Prim的兄弟，OJ上实现过。
+
+使用堆实现优先级队列时，时间复杂度为$O((|E|+|V|)\log |E|)$。
+
+# APSP
+
+### ~~BF~~Warshall(可达矩阵的计算，不是APSP)
+
+考虑用每个点来优化每个点对。时间复杂度$O(n^3)$。
+
+### Floyd（APSP的计算）
+
+不能有负权**环**。（Dijkstra不能有负权边。）
+
+时间复杂度$O(n^3)$。
+
+### BF
+
+*怎么就证明是正确的了？？*
+
+可检测负权**环**。
+
+时间复杂度$O(|V|\cdot |E|)$。
+
+无所谓
+
+# Q
+
+1.  PPT16的最后几页在说什么啊？？
+2.  历史遗留问题：这些图算法的时空复杂度是？如何证明它们是正确的？
+3.  证明图算法的正确性？
+4.  证明贪心算法的正确性？6.2.4
+5.  特征方程实际上没什么用？
+6.  关键路径算法（HY书第51页，如果把检查更新的语句放在同一个地方，比如if语句的外面呢？
 
 
 
@@ -252,30 +335,9 @@ LinkedList要存两次？如何只处理一次？
     - May be wrong/bad
   - 启发式算法
 
-# Q
-
-1. 证明图算法的正确性？
-2. 
-
-# Week11-13 Graph
-
-** White path theorem（不知道有啥用）**
-
-## 
 
 
-
-## New-Applications of DFS
-
-1. Topological sort
-2. Critical path
-3. Strongly connected components
-
-# Q
-
-特征方程实际上没什么用？
-
-
+# 复习笔记
 
 # 期中复习
 
@@ -351,7 +413,6 @@ LinkedList要存两次？如何只处理一次？
 
 
 
-
 # 期末复习
 
 ## 图系列算法
@@ -383,6 +444,7 @@ DP in 5 easy steps:
 
 1.  Define subproblems
 2.  Guess (part of solution)
+    1.  
 3.  Recurrence
 4.  Two ways:
     1.  **Top-down:** Recurse+memorize
@@ -399,6 +461,8 @@ DP in 5 easy steps:
 4.  Rooted trees r[i]
     1.  Suffixes+Profixes
 
+
+
 ## 计算复杂性
 
 - P：多项式时间可解
@@ -412,17 +476,11 @@ DP in 5 easy steps:
 
 程序是无穷可列的（N），但问题是无穷不可列的（R）。但是不是特别理解TAT。
 
-# 期末Tips
-
-1. 等比数列求和还能绊脚……
-
-# 期末问题
-
 1. Merge、Heap、Quick平均复杂度一样，那么他们就一样优秀吗？
    1. Quick的不同Partition算法的效率实际上不一样？
 3. 如果说输入的数大会导致伪多项式算法，那么DP的Fibo其实也是伪多项式的？
 
-# 不同复杂度能做的操作
+# 不同时间复杂度能做的操作
 
 1.  O(1+$\alpha$)
     1.  哈希
@@ -534,10 +592,3 @@ Dijkstra不可处理负权值情况， Bellman-Ford可以。
 2.  最长公共子串
 
 设计技巧：
-
-
-
-
-
-# MIT网课补充
-
