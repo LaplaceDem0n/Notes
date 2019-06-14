@@ -247,17 +247,21 @@ LinkedList要存两次？如何只处理一次？
 
 不断寻找Fringe中距离最近的一个点加入，更新。
 
-时间复杂度为$O(E + V log V)$。
+详细地说，时间复杂度是$O(n\times (EXTRACT-MIN+INSERT)+m\times UPDATE-KEY)$。
 
-适合稠密图(E~$V^2\to V^2+V\log V$)。
+采用Heap实现优先级队列时，时间复杂度为$O((m + n) log n)$。
+
+适合稠密图(m~$n^2\to n^2\log n$)。对稀疏图会是$O(n\log n)$的复杂度，不过Kruskal也是这个复杂度呀？
 
 #### Kruskal
 
 不断寻找距离最近的一个点加入，确保无环。
 
-时间复杂度为$O(E \log V)$。
+详细地说，时间复杂度是$O(排序m\log m+并查集查询m\log n +并查集插入 n)=O(m\log m )$。
 
-适合稀疏图(E~V$\to V\log V$)。
+时间复杂度为$O(m \log m)$。
+
+适合稀疏图(n~m$\to n\log n$)。对稠密图可能会导致$n^2\log n^2$的复杂度，不如Prim。
 
 ## SSSP
 
@@ -265,7 +269,7 @@ LinkedList要存两次？如何只处理一次？
 
 Prim的兄弟，OJ上实现过。
 
-使用堆实现优先级队列时，时间复杂度为$O((|E|+|V|)\log |E|)$。
+使用堆实现优先级队列时，时间复杂度为$O((|E|+|V|)\log |V|)$。
 
 # APSP
 
