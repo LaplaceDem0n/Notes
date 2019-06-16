@@ -154,14 +154,16 @@ Why DFS/BFS? -> Intuitive
 
 ### Edge classification
 
-|  TE  |       BE        |  DE  |  CE  |      |      |
-| :--: | :-------------: | :--: | :--: | :--: | :--: |
-|  ✔   | ✘(无环时不可有) |  ✔   |  ✔   | DAG  | DFS  |
-|  ✔   |        ✔        |  ✘   |  ✘   |  UG  | DFS  |
-|  ✔   |        ✔        |  ✘   |  ✔   | DAG  | BFS  |
-|  ✔   |        ✘        |  ✘   |  ✘   |  UG  | BFS  |
+|  TE  |       BE       |  DE  |  CE  |      |      |
+| :--: | :------------: | :--: | :--: | :--: | :--: |
+|  ✔   | 无环$\iff$没有 |  ✔   |  ✔   | DAG  | DFS  |
+|  ✔   |       ✔        |  ✘   |  ✘   |  UG  | DFS  |
+|  ✔   |       ✔        |  ✘   |  ✔   | DAG  | BFS  |
+|  ✔   |       ✘        |  ✘   |  ✔   |  UG  | BFS  |
 
 *Tips:DFS在UG上遍历而没有遇到BE时，说明G为Forest*
+
+![Edge&Cycle](Algorithm_NJU.assets/CycleDetection.png)
 
 ## 重点介绍的算法
 
