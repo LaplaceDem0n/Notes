@@ -167,7 +167,7 @@ Why DFS/BFS? -> Intuitive
 
 ## 重点介绍的算法
 
-## UG-DFS/General
+## UG-DFS/General/(图解构)
 
 ### 求联通分量
 
@@ -186,7 +186,7 @@ Why DFS/BFS? -> Intuitive
 
 - 定义：对每个有向边$u\to v$，u的序列号应该比v小。
     - 说人话：对于箭头表示u依赖v的情况求出来的课程选修顺序是逆拓扑序。
-- 思路：采用DFS，不断地取没有入度的顶点，并对其相邻节点更新新新没有入度的顶点。
+- 思路：采用DFS，不断地取没有入度的顶点，并对其相邻节点更新没有入度的顶点。
     - 如果没有入度的顶点空了图却还有边，就肯定有环，错误[Wiki。](https://www.wikiwand.com/en/Topological_sorting)
     - 否则取顶点的顺序就是拓扑序。
 - 复杂度：O(V+E)。
@@ -199,13 +199,28 @@ Why DFS/BFS? -> Intuitive
     - backtrack
     - nontreeedge
 
+- 思路——说人话
+
+    - v最早什么时候开始？
+
+        - 看所有依赖的节点w最早什么时候完成。
+
+        - **没有依赖的节点都能在0时刻开始**
+
+            - *实际上PPT的算法默认了从一个没有依赖的节点开始？*
+            - *而且没有解释怎么输出关键路径上的节点…*
+
+            
+
     
 
 ### 强联通分量
 
-- 思路： 按照$G^T$中DFS得到的discoverTime降序进行第二次DFS
+- 思路： 按照$G^T$中DFS得到的finishTime降序进行第二次DFS。
+  - 在$G^T$中结束得越晚，在$G^T$中到其他点的联通性就越强。
+    - 对应地，在$G$中就越是最后被访问的家伙
 - 复杂度：O(V+E)。
-- Tips：不能在原图中用finishTime升序……
+- Tips：不能在**原图**中用**finishTime升序**……
 
 >    BFS的证明
 >
@@ -303,6 +318,74 @@ Prim的兄弟，OJ上实现过。
 4.  证明贪心算法的正确性？6.2.4
 5.  特征方程实际上没什么用？
 6.  关键路径算法（HY书第51页，如果把检查更新的语句放在同一个地方，比如if语句的外面呢？
+7.  HY书P53的Leader什么的会考么？
+
+
+
+
+
+# DP
+
+共性：最优子问题结构：大问题的解必定包括子问题的正确解，否则子问题可以被**替换**。
+
+## DP的艺术
+
+- 记忆。记住已经计算过的解，用更多的内存避免重复运算。
+- 自底向上(Bottom up)。
+
+## DP in 5 easy steps
+
+1. Define subproblems
+2. Guess (part of solution)
+3.  Identify the recurrence
+   1. init. conditions
+   2. smaller subproblems
+4. Two ways:
+   1. **Top-down:** Recurse+memorize
+      1. Check acyclic!
+   2. Or **Bottom-up:** compute in topo order
+   3. *Time=subproblems$\times$timePerSubproblem*
+5. Solve the original problem
+
+## Typical subproblems pattern
+
+1. Suffixes x[i:] $\forall i$
+2. Prefixes x[:i]$\forall i$
+3. Substrings x[i:j] $\forall i < j$
+4. Rooted trees r[i]
+   1. Suffixes+Profixes
+
+## Typical subproblem itself
+
+1.  1D subproblems with *pattern of prefix/suffixes*
+   1. Rod cutting
+   2. Maximum-sum subarray
+   3. Longest increasing subsequence
+   4. Printing neatly
+2. 2D subproblems
+   1. 2 input strings with *pattern of prefix/suffixes*
+      1. Edit distance
+      2. Longest common subsequence
+   2. **1 input strings** with *pattern of substring*
+      1. Matrix chain multiplication
+      2. Optimal BST
+
+## 计算复杂性
+
+- P：多项式时间可解
+- NP：多项式时间可验证
+- NP-Hard：不比NP简单的问题
+- NP-Complete：NP-Hard$\cap$NP
+- EXP：指数时间可解
+- R：有限时间可解
+
+*Most decision problem is not in R!*
+
+程序是无穷可列的（N），但问题是无穷不可列的（R）。但是不是特别理解TAT。
+
+1. Merge、Heap、Quick平均复杂度一样，那么他们就一样优秀吗？
+   1. Quick的不同Partition算法的效率实际上不一样？
+2. 如果说输入的数大会导致伪多项式算法，那么DP的Fibo其实也是伪多项式的？
 
 
 
@@ -436,55 +519,6 @@ Prim的兄弟，OJ上实现过。
 ## 贪心算法
 
 
-
-## 动态规划
-
-共性：最优子问题结构：大问题的解必定包括子问题的正确解，否则子问题可以被**替换**。
-
-DP的艺术：
-
-- 记忆。记住已经计算过的解，用更多的内存避免重复运算。
-- 自底向上(Bottom up)。
-
-DP in 5 easy steps:
-
-1.  Define subproblems
-2.  Guess (part of solution)
-    1.  
-3.  Recurrence
-4.  Two ways:
-    1.  **Top-down:** Recurse+memorize
-        1.  Check acyclic!
-    2.  Or **Bottom-up:** compute in topo order
-    3.  *Time=subproblems$\times$timePerSubproblem*
-5.  Solve the original problem
-
-**Typical subproblems pattern**
-
-1.  Suffixes x[i:] $\forall i$
-2.  Prefixes x[:i]$\forall i$
-3.  Substrings x[i:j] $\forall i < j$
-4.  Rooted trees r[i]
-    1.  Suffixes+Profixes
-
-
-
-## 计算复杂性
-
-- P：多项式时间可解
-- NP：多项式时间可验证
-- NP-Hard：不比NP简单的问题
-- NP-Complete：NP-Hard$\cap$NP
-- EXP：指数时间可解
-- R：有限时间可解
-
-*Most decision problem is not in R!*
-
-程序是无穷可列的（N），但问题是无穷不可列的（R）。但是不是特别理解TAT。
-
-1. Merge、Heap、Quick平均复杂度一样，那么他们就一样优秀吗？
-   1. Quick的不同Partition算法的效率实际上不一样？
-3. 如果说输入的数大会导致伪多项式算法，那么DP的Fibo其实也是伪多项式的？
 
 # 不同时间复杂度能做的操作
 
