@@ -118,7 +118,7 @@ $$\sum\limits^n_{i=1}x^2=\frac{n(n-1)(2n+1)}{6}$$
 -   特征方程
     -   记不住就完事了……
 -   递归树->master定理
-    -   $E=log_c b$
+    -   $E=log_{c-smaller} {b-branches}$
         -   每次均分为b个分支
         -   问题规模变成原来的$\frac{1}{c}$
     -   注意：$\varepsilon$必须**大于零**。如果无法找到大于零的$\varepsilon$，就不能使用两条规则。
@@ -143,6 +143,47 @@ $$\sum\limits^n_{i=1}x^2=\frac{n(n-1)(2n+1)}{6}$$
 ** White path theorem（不知道有啥用）**
 
 
+
+# 堆和树
+
+**这一部分不知道什么时候删掉了……还是没录入……期末补上！**
+
+## 树-经常弄混的术语
+
+**Level**
+
+The level of a node is defined as: **1 +** the number of *edges* between the node and the root.
+
+**Depth**
+
+The depth of a node is defined as: the number of *edges* between the node and the root.
+
+**Height of node**
+
+The height of a node is the number of *edges on the longest path* between that node and a descendant leaf.
+
+**Height of tree**
+
+The height of a tree is the height of its root node.
+
+## 红黑树
+
+根从黑起，赤无赤子，黑者均一。
+
+1.  红色节点没有红色的子女节点。
+2.  外部黑色节点的黑色路径长度一样。
+
+**插入和删除节点的代价都是$O(\log n)$。**
+
+# Union-Find
+
+复杂度：
+
+Time complexity of union and find function depends on some conditions.[Ref.](https://cs.stackexchange.com/questions/96401/why-time-complexity-of-union-find-is-olgn-with-only-union-by-rank)
+
+1.  without anything: O(N)
+2.  with Union by Rank: O(logN)
+3.  with Path Compression: O(α(N)) which is inverse Ackermann function.
 
 
 
@@ -303,6 +344,8 @@ Prim的兄弟，OJ上实现过。
 
 ### Floyd（APSP的计算）
 
+思路：利用了动态规划的思想，第k次计算矩阵的时候算的是**只利用前k个点**，i到j的最短路径是多少，暗含了递归方程。
+
 不能有负权**环**，实际上有负权环的时候最短路径是未定义的，可以转任意多圈再出来。（Dijkstra不能有负权边。）
 
 时间复杂度$O(n^3)$。
@@ -317,11 +360,9 @@ Prim的兄弟，OJ上实现过。
 
 时间复杂度$O(|V|\cdot |E|)$。
 
-无所谓
-
 # Q
 
-1.  PPT16的最后几页在说什么啊？？
+1.  PPT16的最后几页在说什么啊？？不管了，假装不会考。
 2.  历史遗留问题：这些图算法的时空复杂度是？如何证明它们是正确的？
 3.  证明图算法的正确性？
 4.  证明贪心算法的正确性？6.2.4
@@ -543,6 +584,7 @@ Prim的兄弟，OJ上实现过。
     2.  乱序数组中取第k大/小个元素
     3.  遍历找最大
     4.  同时找最大最小
+    5.  建堆
 4.  O(nlgn)
     1.  对n个元素执行O(lgn)的操作
     2.  归并/快排
@@ -641,3 +683,15 @@ Dijkstra不可处理负权值情况， Bellman-Ford可以。
 2.  最长公共子串
 
 设计技巧：
+
+没看懂hhh
+
+
+
+
+
+# Future direction
+
+## Q
+
+1.  Quicksort’s partition algorithm?
