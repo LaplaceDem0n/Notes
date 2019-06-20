@@ -97,7 +97,7 @@
 
 ### 1-8: Byte order and packet formats
 
-Network order is Big-endian.
+Network order is Big-endian.(Same order as human write numbers.)
 
 *The layout of a character string in memory is the same on big-endian and little-endian architectures.*
 
@@ -129,12 +129,15 @@ Match the forwarding table entry or the default.
 - Handshake
 	- Syn-Syn/Ack-Ack
 - 4 Properties
+- TCP Teardown
+    - $A\to B\& B\to A$: Fin-Ack
 - TCP Segment Format 
 
 ### 2-2: UDP service model
 
 - 自言自语
 - 3 Properties
+    - 
 
 ### 2-3: ICMP service model
 
@@ -162,6 +165,7 @@ Match the forwarding table entry or the default.
 
 ### 2-7: Reliable Communications - Stop and wait
 
+- Flow control: do not **overflow the receiver**
 - Only one packet on the flight
 
 ### 2-8: Reliable Communications - Sliding window
@@ -198,7 +202,12 @@ Match the forwarding table entry or the default.
 
 ### 2-10: Reliable Communications - TCP header
 
+-   Seq num:starting offset of data
+-   Ack num:the next byte offset of data
+
 ### 2-11: Reliable Communications - Connection setup and teardown
+
+-   
 
 ### 2-12: Transport (recap)
 
