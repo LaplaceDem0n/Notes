@@ -225,9 +225,15 @@ Match the forwarding table entry or the default.
 
 ### 3-3: Terminology, End to End Delay and Queueing Delay
 
-- 数据包化延迟
-- 传输延迟
-- 排队等待延迟
+- 数据包化延迟$\frac{packetSize}{linkRate}$
+- 传输延迟 $\frac{length}{lightSpeed}$
+- 排队等待延迟(varies)
+
+**定义End to end delay:**
+
+1.  从第一个bit开始被发送到最后一个bit成功被接收的时间。
+2.  **不算排队等待的延迟**
+3.  Store & forward:
 
 *习题里大小不同的数据包消耗的总延迟算法不一样，不过暂时没看懂，上课再想吧。*
 
