@@ -174,7 +174,26 @@ $ms:10^{-3}s$
 
 1. Distributed Coordination
 
-# Week 9
+# Network layer
+
+-   IP Header
+    -   构成
+-   Link-state v.s. Distance Vector
+    -   Dijkstra and BF?
+-   Intra- and inter-domain routing
+    -   RIP/OSPF/BGP
+        -   对应路由算法
+    -   Subnet, netmask, gateway etc.
+-   CIDR
+    -   More general question
+-   ARP
+-   DHCP
+
+# End of network layer
+
+## Q
+
+## More to read
 
 ## BGP
 
@@ -193,7 +212,17 @@ $ms:10^{-3}s$
 
 
 
-# Week13
+#  Transport layer
+-   UDP vs. TCP
+-   UDP/TCP Header 
+-   TCP 3-way handshake, and break-down
+-   TCP details: reliability and flow control 
+-   TCP congestion control
+    -   Sliding window
+    -   AIMD
+    -   RTT
+-   ICMP
+-   NAT
 
 ## PPT4.1 TCP basic
 
@@ -234,7 +263,12 @@ Summary(Screenshot)
 
 
 
-# Week15
+# Application layer
+-   HTTP
+    -   Different versions with different fetch strategies
+-   DNS
+    -   Two operational modes
+-   CDN
 
 NAT->DNS->HTTP
 
@@ -266,7 +300,14 @@ HTTP1.1
 
 
 
-## 网络安全
+## Security
+-   Symmetric keys
+-   Public-private keys
+    -   How to calculate?
+-   Trusted 3rd Party
+-   DH key exchange
+-    IPSec
+-   SSL/TLS
 
 
 
