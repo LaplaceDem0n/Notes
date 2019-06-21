@@ -2,9 +2,14 @@
 
 # ComputerNetwork_NJU
 
+# 复习指南
+
+1. 听一边最后的录音。跟着review PPT看Slides，整理Notes。
+2. 挑不会的部分，刚刚看懂的部分做一下课后习题确认自己会了。
+3. 看看对应的作业题。
+4. 对着隔壁班的复习提纲再看一遍Slides
 
 
-[TOC]
 
 # Basics
 
@@ -84,47 +89,50 @@ TBD:Pic on PDF 51
 
 # Link layer
 
-- TDMA/FDMA/CDMA
-- Aloha/Slotted-Aloha: successful ratio?
-- Ethernet
-  - CSMA/CD
+## Shared/broadcastsolution
+
+### Partition
+
+TDMA/FDMA/[CDMA](https://www.wikiwand.com/zh-hans/%E5%88%86%E7%A2%BC%E5%A4%9A%E9%87%8D%E9%80%B2%E6%8E%A5)
+
+### Random
+
+- Aloha/Slotted-Aloha:
+  - successful ratio
+    - See textbook(Chinese ver.) P295-P297
+- Ethernet, CSMA/CD-need to ensure the latency is low enough
+  - CSMA-载波监听，说话前听听有人讲话嘛w
+  - CD-冲突检测
+  - Ethernet最短包长度64Bytes。如果太短，会在没有监听到的情况下发包，反而不知道自己的包被干涉。
+  - sender needs at least 2$\times$ latency for transfering data
+  - Min frame size
+  - Max length of the wire
 - Wireless
-  - CSMA/CA or Distributed Coordination
+  - **Random**:CSMA/CA & Distributed Coordination
+    - Request to Send (RTS)-Clear to Send (CTS)-data-ACK
   - Hidden terminal
+    - A, C can not hear each other. Hence, A, C are unawarA, C are unaware of their interference at B
   - Multi-path
-- Switch/Bridge
-  - Self learning
-  - Spanning tree
+    - Signals bounce off surface and interfere with
+      one another
+    - Self-interference
 
-### Data link
+### Taking turns
 
-#### Main function
+- Token passing
 
--   Framing-封装
--   Link manage-决定谁可以通信
--   Reliable-WiFi一次发送双倍的包
+## Switched solution
 
+*Nowadays the way Ethernet works.*
 
+### Switch/Bridge
 
-
-
-Random access MAC protocol
-
-CSMA-载波监听，说话前听听有人讲话嘛w
-
-CD-冲突检测
+- Self learning of switch
+- Spanning tree approach to avoid loop
 
 
 
-Ethernet最短包长度64Bytes。如果太短，会在没有监听到的情况下发包，反而不知道自己的包被干涉。
 
-
-
-## Week4
-
-### Spanning tree approach
-
-## Week5
 
 Lan & Wlan
 
@@ -141,8 +149,6 @@ Lan & Wlan
 
 CSMA/CA
 
-## Week6
-
 
 
 ### Units
@@ -154,6 +160,19 @@ $G:10^9$
 $ms:10^{-3}s$
 
 # End of Link layer
+
+## Q
+
+
+
+1. CSMA/CD
+   1. Min Frame Size? 
+2. Wireless
+   1. CSMA/CA??
+
+## More to read text:
+
+1. Distributed Coordination
 
 # Week 9
 
