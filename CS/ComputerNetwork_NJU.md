@@ -2,15 +2,20 @@
 
 # ComputerNetwork_NJU
 
+# 复习指南
+
+1. 听一边最后的录音。跟着review PPT看Slides，整理Notes。
+2. 挑不会的部分，刚刚看懂的部分做一下课后习题确认自己会了。
+3. 看看对应的作业题。
+4. 对着隔壁班的复习提纲再看一遍Slides
 
 
-[TOC]
 
-## Basics
+# Basics
 
-### Switched network
+## Switched network
 
-#### Circuit switching
+### Circuit switching
 
 -   Multiplexing
     -   **Time** division multiplexing
@@ -27,7 +32,7 @@
     -   **Delay** on setup
     -   …
 
-#### Packet switching/统计性交换
+### Packet switching/统计性交换
 
 -   统计——在大多数情况下各用户的突发需求合计不超过交换机处理能力
 -   Pros
@@ -35,9 +40,9 @@
 
 
 
-### Performance
+## Performance
 
-#### Delay
+### Delay
 
 -   Four components
     -   Transmission(Due to link properties)
@@ -53,22 +58,24 @@
             -   Peak rate P
             -   Waiting time W
         -   对应Little‘s Result
+            -   LengthOfQueue=AverageRate$\times$WaitingTime
     -   Processing(Due to traffic mix & switch internals)
         -   现代交换机为$ns$级，可忽略
 -   Bandwidth-Delay Product
     -   Bandwidth * Propagation delay
+    -   Represents the amout of data in flight
 
 TBD:Pic on PDF 51
 
-#### Loss
+### Loss
 
-#### Throughput
+### Throughput
 
-## Week 3
+## 
 
-### Laying
+## Laying & Encapsulation
 
-pros & cons 
+### pros & cons 
 
 # End of Basics
 
@@ -79,39 +86,53 @@ pros & cons
 ## More to read text:
 
 1. 虚拟链路？
-2. 
 
-# 
+# Link layer
 
-### Data link
+## Shared/broadcastsolution
 
-#### Main function
+### Partition
 
--   Framing-封装
--   Link manage-决定谁可以通信
--   Reliable-WiFi一次发送双倍的包
+TDMA/FDMA/[CDMA](https://www.wikiwand.com/zh-hans/%E5%88%86%E7%A2%BC%E5%A4%9A%E9%87%8D%E9%80%B2%E6%8E%A5)
+
+### Random
+
+- Aloha/Slotted-Aloha:
+  - successful ratio
+    - See textbook(Chinese ver.) P295-P297
+- Ethernet, CSMA/CD-need to ensure the latency is low enough
+  - CSMA-载波监听，说话前听听有人讲话嘛w
+  - CD-冲突检测
+  - Ethernet最短包长度64Bytes。如果太短，会在没有监听到的情况下发包，反而不知道自己的包被干涉。
+  - sender needs at least 2$\times$ latency for transfering data
+  - Min frame size
+  - Max length of the wire
+- Wireless
+  - **Random**:CSMA/CA & Distributed Coordination
+    - Request to Send (RTS)-Clear to Send (CTS)-data-ACK
+  - Hidden terminal
+    - A, C can not hear each other. Hence, A, C are unawarA, C are unaware of their interference at B
+  - Multi-path
+    - Signals bounce off surface and interfere with
+      one another
+    - Self-interference
+
+### Taking turns
+
+- Token passing
+
+## Switched solution
+
+*Nowadays the way Ethernet works.*
+
+### Switch/Bridge
+
+- Self learning of switch
+- Spanning tree approach to avoid loop
 
 
 
 
-
-Random access MAC protocol
-
-CSMA-载波监听，说话前听听有人讲话嘛w
-
-CD-冲突检测
-
-
-
-Ethernet最短包长度64Bytes。如果太短，会在没有监听到的情况下发包，反而不知道自己的包被干涉。
-
-
-
-## Week4
-
-### Spanning tree approach
-
-## Week5
 
 Lan & Wlan
 
@@ -128,8 +149,6 @@ Lan & Wlan
 
 CSMA/CA
 
-## Week6
-
 
 
 ### Units
@@ -140,9 +159,20 @@ $G:10^9$
 
 $ms:10^{-3}s$
 
-# Week7-8
+# End of Link layer
 
-补充阅读：英文第六版虚拟电路内容。
+## Q
+
+
+
+1. CSMA/CD
+   1. Min Frame Size? 
+2. Wireless
+   1. CSMA/CA??
+
+## More to read text:
+
+1. Distributed Coordination
 
 # Week 9
 
