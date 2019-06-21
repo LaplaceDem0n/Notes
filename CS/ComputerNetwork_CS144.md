@@ -556,6 +556,11 @@ Problem:
 
 ### 5-8: DNS 1
 
+-   Hierarchical architecture
+-   2 types of queries
+    -   Recursive
+    -   Nonrecursive
+
 ### 5-9: DNS 2
 
 ### 5-10: DNS 3
