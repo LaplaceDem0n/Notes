@@ -6,11 +6,11 @@
 
 [TOC]
 
-## Basics
+# Basics
 
-### Switched network
+## Switched network
 
-#### Circuit switching
+### Circuit switching
 
 -   Multiplexing
     -   **Time** division multiplexing
@@ -27,7 +27,7 @@
     -   **Delay** on setup
     -   …
 
-#### Packet switching/统计性交换
+### Packet switching/统计性交换
 
 -   统计——在大多数情况下各用户的突发需求合计不超过交换机处理能力
 -   Pros
@@ -35,9 +35,9 @@
 
 
 
-### Performance
+## Performance
 
-#### Delay
+### Delay
 
 -   Four components
     -   Transmission(Due to link properties)
@@ -53,22 +53,24 @@
             -   Peak rate P
             -   Waiting time W
         -   对应Little‘s Result
+            -   LengthOfQueue=AverageRate$\times$WaitingTime
     -   Processing(Due to traffic mix & switch internals)
         -   现代交换机为$ns$级，可忽略
 -   Bandwidth-Delay Product
     -   Bandwidth * Propagation delay
+    -   Represents the amout of data in flight
 
 TBD:Pic on PDF 51
 
-#### Loss
+### Loss
 
-#### Throughput
+### Throughput
 
-## Week 3
+## 
 
-### Laying
+## Laying & Encapsulation
 
-pros & cons 
+### pros & cons 
 
 # End of Basics
 
@@ -79,9 +81,20 @@ pros & cons
 ## More to read text:
 
 1. 虚拟链路？
-2. 
 
-# 
+# Link layer
+
+- TDMA/FDMA/CDMA
+- Aloha/Slotted-Aloha: successful ratio?
+- Ethernet
+  - CSMA/CD
+- Wireless
+  - CSMA/CA or Distributed Coordination
+  - Hidden terminal
+  - Multi-path
+- Switch/Bridge
+  - Self learning
+  - Spanning tree
 
 ### Data link
 
@@ -140,9 +153,7 @@ $G:10^9$
 
 $ms:10^{-3}s$
 
-# Week7-8
-
-补充阅读：英文第六版虚拟电路内容。
+# End of Link layer
 
 # Week 9
 
