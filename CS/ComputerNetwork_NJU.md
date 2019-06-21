@@ -6,7 +6,7 @@
 
 [TOC]
 
-## Week1
+## Basics
 
 ### Switched network
 
@@ -69,6 +69,19 @@ TBD:Pic on PDF 51
 ### Laying
 
 pros & cons 
+
+# End of Basics
+
+## Q:
+
+1. Link characteristics??
+
+## More to read text:
+
+1. 虚拟链路？
+2. 
+
+# 
 
 ### Data link
 
