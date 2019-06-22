@@ -176,14 +176,83 @@ $ms:10^{-3}s$
 
 # Network layer
 
--   IP Header
-    -   构成
--   Link-state v.s. Distance Vector
-    -   Dijkstra and BF?
--   Intra- and inter-domain routing
-    -   RIP/OSPF/BGP
-        -   对应路由算法
-    -   Subnet, netmask, gateway etc.
+## IP Header
+
+-   构成
+-   ![](ComputerNetwork_NJU.assets/IP.png)
+-   ![](ComputerNetwork_NJU.assets/IP2.png)
+-   ![](ComputerNetwork_NJU.assets/IP3.png)
+
+## Link-state v.s. Distance Vector
+
+-   Dijkstra(LS-OSPF) and BF(DV-RIP)?
+-   ![img](ComputerNetwork_NJU.assets/po-1.png)
+
+## Intra- and inter-domain routing(对应路由算法)
+
+### RIP(DV)
+
+### OSPF(LS)
+
+### BGP(DV)
+
+#### Why
+
+-   policy
+    -   Business relationships
+-   autonomy
+-   privacy
+
+#### 4 attrs differ from DV
+
+-   Not picking shortest-path routes, BGP selects the best route based on policy
+-   Path-Vector routing, but why???
+    -   **Loop avoidance** is straightforward (simply discard paths with loops)
+    -   Flexible and expressive **policies based on entire path**
+-   Selective route advertisement
+    -   For policy reasons, an AS may choose not to advertise a route to a destination 
+-   BGP may aggregate routes
+
+#### Protocol details
+
+4 attrs in BGP route
+
+1.  ASPATH
+    1.  Vector that lists all the ASes a route 
+        advertisement has traversed (in reverse order)
+2.   Local preference in choosing between different AS paths(carried only in iBGP messages)
+    1.  The higher the value the more preferred
+3.  Multi-exit discriminator (kind like for breaking ties)
+    1.  specifies how close a prefix is to the link it is 
+        announced on
+    2.  Lower is better
+4.  IGP cost for hot-potato routing
+    1.  Each router selects the closest egress point based on the path cost in intra-domain protocol
+
+![](ComputerNetwork_NJU.assets/attr.png)
+
+#### Issues in practice
+
+-   Reachability
+    -   In normal routing, if graph is connected then 
+        reachability is assured. With policy routing, this does not always hold
+-   Security
+    -    AS may forward packets along a route different 
+        from what is advertised
+-   Convergence
+    -    If all AS policies follow “Gao-Rexford” rules, 
+        BGP is guaranteed to converge. For arbitrary policies, BGP may fail to 
+        converge!
+    -   (Gao-Rex rule)![gr](ComputerNetwork_NJU.assets/gr.png)
+-   Performance
+    -   Not always optimal due to policy
+    -   AS path length can be misleading
+    -   Slow convergence
+-   Anomalies
+
+## Other topics
+
+-   Subnet, netmask, gateway etc.
 -   CIDR
     -   More general question
 -   ARP
@@ -193,6 +262,8 @@ $ms:10^{-3}s$
 
 ## Q
 
+1.  BF，毒性逆转为什么不能应对3个以上的节点？
+
 ## More to read
 
 ## BGP
@@ -200,15 +271,9 @@ $ms:10^{-3}s$
 **main topic**:
 
 	1. route selcetion
- 	2. route export (Gao-Rex rule)![gr](ComputerNetwork_NJU.assets/gr.png)
+ 	2. route export 
 
-**Detail**:
 
-	1. 4 Attrs
-
-**Issues**
-
-…
 
 
 
