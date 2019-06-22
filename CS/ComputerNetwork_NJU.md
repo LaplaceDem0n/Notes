@@ -263,25 +263,34 @@ $ms:10^{-3}s$
 ## Q
 
 1.  BF，毒性逆转为什么不能应对3个以上的节点？
+    1.  见第七版课本P11
 
 ## More to read
 
 #  Transport layer
 
+## PPT4.1 TCP basic
+
+1. Stop & wait: OK with short distance. Thoughput ~ Data/RTT.
+2. Sliding window(with buffer). 
+3. Cumilative/Selective ACK
+4. GBN(Used in data center
+5. Selective Repeat(Compare in screenshot)
+
 ## UDP&[TCP](https://tools.ietf.org/pdf/rfc793.pdf)
 
--   UDP vs. TCP
+### UDP vs. TCP
 
-    -   区别，可靠与简单的权衡
-    -   UDP is a minimalist transport protocol
-        -    Only provides mux/demux capabilities
-    -   TCP delivers a reliable, in-order, byte stream
+-   区别，可靠与简单的权衡
+-   UDP is a minimalist transport protocol
+    -    Only provides mux/demux capabilities
+-   TCP delivers a reliable, in-order, byte stream
 
--   UDP/TCP Header 
+### UDP/TCP Header
 
-    -   ![](ComputerNetwork_NJU.assets/UDP.png)
-    -   ![](ComputerNetwork_NJU.assets/TCP.png)
-        -   Note:*While computing the checksum, the checksum field itself is replaced with zeros.*
+-   ![](ComputerNetwork_NJU.assets/UDP.png)
+-   ![](ComputerNetwork_NJU.assets/TCP.png)
+    -   Note:*While computing the checksum, the checksum field itself is replaced with zeros.*
 
 -   >   TCP-Checksum:  16 bits
     >
@@ -290,70 +299,59 @@ $ms:10^{-3}s$
     >   *If a segment contains an odd number of header and text octets to be checksummed, the last octet is padded on the right with zeros to form a 16 bit word for checksum purposes.  The pad is not transmitted as part of the segment.*  
     >
     >   While computing the checksum, the checksum field itself is replaced with zeros. The checksum also covers a 96 bit pseudo header conceptually prefixed to the TCP header.  This pseudo header contains the Source Address, the Destination Address, the Protocol, and TCP length. This gives the TCP protection against misrouted segments.  This information is carried in the Internet Protocol and is transferred across the TCP/Network interface in the arguments or results of calls by the TCP on the IP.
+
+```c
++--------+--------+--------+--------+
+|           Source Address          |
++--------+--------+--------+--------+
+|         Destination Address       |
++--------+--------+--------+--------+
+|  zero  |  PTCL  |  TCP Length     |
++--------+--------+--------+--------+
+```
+
+### Reliable transmit
+
+- Two common options of ACK:
+  - Cumulative ACKs: ACK carries next in-order 
+    sequence number the receiver expects
+  - Selective ACKs: ACK individually acknowledges 
+    correctly received packets
+- Resending packets: two canonical approaches
+  - Go-Back-N: 
+    - Better when error rate is low; wastes bandwidth otherwise
+  - Selective Repeat
+    - Better when error rate is high; otherwise, too complex
+
+### TCP setup & break-down
+
+-   为什么要三次握手，四次挥手
+
+-   两种break-down的方式
+
+-   MaxSegSize+IPhdr+TCPhdr=MTU
+
+    esitimateRTT:K/P algorithm(see screenshot)
+
+### TCP details: reliability and flow control 
+
+-   Seq & Ack
+
+    -   Sequence number:1 st byte in segment
+    -   ACK sequence number: next expected byte
+    -   Seqno of next packet is **same as** last ACK field
+    -   **Duplicate** ACKs are a *sign of an isolated loss*
+    -   Timer
     
-    ```
-                         +--------+--------+--------+--------+ 
-                         |              Source Address             |       
-                         +--------+--------+--------+--------+ 
-                         |         Destination Address        |  
-                         +--------+--------+--------+--------+ 
-                         |  zero  |  PTCL  |  TCP Length   | 
-                         +--------+--------+--------+--------+
-    ```
+-   TCP的抽象(stream)和UDP的抽象有什么区别
+
     
--   TCP 3-way handshake, and break-down
 
-    -   为什么要三次握手
-    -   两种break-down的方式
+### TCP flow&congestion control
 
--   TCP details: reliability and flow control 
+- flow control-don’t overflow the receiver & congestion control- don’t overflow the network
 
-    -   TCP的抽象(stream)和UDP的抽象有什么区别
-        -    Two common options of ACK:
-            -   Cumulative ACKs: ACK carries next in-order 
-                sequence number the receiver expects
-            -   Selective ACKs: ACK individually acknowledges 
-                correctly received packets
-        -    Resending packets: two canonical approaches
-            -   Go-Back-N: 
-                -   Better when error rate is low; wastes bandwidth otherwise
-            -   Selective Repeat
-                -   Better when error rate is high; otherwise, too complex
-    -   flow control-don’t overflow the receiver & congestion control- don’t overflow the network
-
--   TCP congestion control
-    -   Sliding window
-    -   Slow start
-    -   AIMD
-    -   RTT&e-RTT
-    
--   ICMP
-
-    -   Applications
-
--   NAT
-
-    -   地址换地址
-    -   端口换地址
-    -   静态绑定&动态绑定
-
-## PPT4.1 TCP basic
-
-1. Stop & wait: OK with short distance. Thoughput ~ Data/RTT.
-2. Sliding window(with buffer). 
-
-1. Cumilative/Selective ACK
-
-1. GBN(Used in data center
-2. Selective Repeat(Compare in screenshot)
-
-## PPT4.2 TCP setup & teardown
-
-MaxSegSize+IPhdr+TCPhdr=MTU
-
-esitimateRTT:K/P algorithm(see screenshot)
-
-## PPT4.3 TCP FLow Control
+#### TCP flow control
 
 min{CWND(Router),RWND(Reciever)}=SenderSideWindows
 
@@ -361,7 +359,7 @@ Slow start->(ssthresh)->AIMD->Why AIMD(Theory)
 
 Summary(Screenshot)
 
-## PPT4.4 TCP Congestion control
+#### TCP congestion control
 
 7 implications
 
@@ -376,7 +374,33 @@ Summary(Screenshot)
 
 
 
+-   Sliding window
+-   Slow start
+-   AIMD
+-   RTT&e-RTT
+
+## ICMP
+
+-   Applications
+
+## NAT
+
+-   地址换地址
+-   端口换地址
+-   静态绑定&动态绑定
+
+# End of Transport layer
+
+## Q
+
+1. Dup ACK
+
+## More to read 
+
+1. TCP all!!
+
 # Application layer
+
 -   HTTP
     -   有哪些种类，取数据的方式有什么不同
         -   1.0
