@@ -266,28 +266,76 @@ $ms:10^{-3}s$
 
 ## More to read
 
-## BGP
-
-**main topic**:
-
-	1. route selcetion
- 	2. route export 
-
-
-
-
-
 #  Transport layer
+
+## UDP&[TCP](https://tools.ietf.org/pdf/rfc793.pdf)
+
 -   UDP vs. TCP
+
+    -   区别，可靠与简单的权衡
+    -   UDP is a minimalist transport protocol
+        -    Only provides mux/demux capabilities
+    -   TCP delivers a reliable, in-order, byte stream
+
 -   UDP/TCP Header 
+
+    -   ![](ComputerNetwork_NJU.assets/UDP.png)
+    -   ![](ComputerNetwork_NJU.assets/TCP.png)
+        -   Note:*While computing the checksum, the checksum field itself is replaced with zeros.*
+
+-   >   TCP-Checksum:  16 bits
+    >
+    >   ​    The checksum field is the 16 bit one’s complement of the one’s complement sum of all 16 bit words in the header and text.  
+>
+    >   *If a segment contains an odd number of header and text octets to be checksummed, the last octet is padded on the right with zeros to form a 16 bit word for checksum purposes.  The pad is not transmitted as part of the segment.*  
+    >
+    >   While computing the checksum, the checksum field itself is replaced with zeros. The checksum also covers a 96 bit pseudo header conceptually prefixed to the TCP header.  This pseudo header contains the Source Address, the Destination Address, the Protocol, and TCP length. This gives the TCP protection against misrouted segments.  This information is carried in the Internet Protocol and is transferred across the TCP/Network interface in the arguments or results of calls by the TCP on the IP.
+    
+    ```
+                         +--------+--------+--------+--------+ 
+                         |              Source Address             |       
+                         +--------+--------+--------+--------+ 
+                         |         Destination Address        |  
+                         +--------+--------+--------+--------+ 
+                         |  zero  |  PTCL  |  TCP Length   | 
+                         +--------+--------+--------+--------+
+    ```
+    
 -   TCP 3-way handshake, and break-down
+
+    -   为什么要三次握手
+    -   两种break-down的方式
+
 -   TCP details: reliability and flow control 
+
+    -   TCP的抽象(stream)和UDP的抽象有什么区别
+        -    Two common options of ACK:
+            -   Cumulative ACKs: ACK carries next in-order 
+                sequence number the receiver expects
+            -   Selective ACKs: ACK individually acknowledges 
+                correctly received packets
+        -    Resending packets: two canonical approaches
+            -   Go-Back-N: 
+                -   Better when error rate is low; wastes bandwidth otherwise
+            -   Selective Repeat
+                -   Better when error rate is high; otherwise, too complex
+    -   flow control-don’t overflow the receiver & congestion control- don’t overflow the network
+
 -   TCP congestion control
     -   Sliding window
+    -   Slow start
     -   AIMD
-    -   RTT
+    -   RTT&e-RTT
+    
 -   ICMP
+
+    -   Applications
+
 -   NAT
+
+    -   地址换地址
+    -   端口换地址
+    -   静态绑定&动态绑定
 
 ## PPT4.1 TCP basic
 
@@ -330,6 +378,12 @@ Summary(Screenshot)
 
 # Application layer
 -   HTTP
+    -   有哪些种类，取数据的方式有什么不同
+        -   1.0
+        -   1.1
+        -   2.0
+    -   给出网页的组成计算花费时间和建立连接数等
+    -   HTTP有哪些操作
     -   Different versions with different fetch strategies
 -   DNS
     -   Two operational modes
@@ -365,13 +419,21 @@ HTTP1.1
 
 
 
-## Security
+# Security
+
 -   Symmetric keys
+    -   DH key exchange
 -   Public-private keys
     -   How to calculate?
+    -   给出一部分输入能否把pq都推出来？
 -   Trusted 3rd Party
--   DH key exchange
--    IPSec
+    -   定义？
+    -   重要性？
+-   IPSec
+    -    两种协议模式
+    -   两种运行模式
+        -    低级：认证
+        -    高级：认证+加密
 -   SSL/TLS
 
 
@@ -384,130 +446,6 @@ HTTP1.1
 -   可能有OfficeHour
 -   范围内大概率会考，PPT出现的都可能会考
 -   8个问题
-
-## Q
-
-网络层：LS/DV与RIP/OSPF/BGP的对应关系。
-
-传输层：TCP分手分几种。流控和拥塞控制的区别。
-
-应用层：CDN？
-
-安全：
-
-# Labs
-
-## Info
-
-7次作业，一堆Lab。
-
-## Lab1
-
-## Lab2
-
-### 上课讲解
-
-
-
-**Q**
-
-内核协议栈？
-
-网卡混杂模式？
-
-为什么头文件要这样定义？
-
-```C++
-enum
-  {
-    IPPROTO_IP = 0,	   /* Dummy protocol for TCP.  */
-#define IPPROTO_IP		IPPROTO_IP
-    IPPROTO_ICMP = 1,	   /* Internet Control Message Protocol.  */
-#define IPPROTO_ICMP		IPPROTO_ICMP
-    IPPROTO_IGMP = 2,	   /* Internet Group Management Protocol. */
-#define IPPROTO_IGMP		IPPROTO_IGMP
-    IPPROTO_IPIP = 4,	   /* IPIP tunnels (older KA9Q tunnels use 94).  */
-#define IPPROTO_IPIP		IPPROTO_IPIP
-    IPPROTO_TCP = 6,	   /* Transmission Control Protocol.  */
-#define IPPROTO_TCP		IPPROTO_TCP
-    IPPROTO_EGP = 8,	   /* Exterior Gateway Protocol.  */
-#define IPPROTO_EGP		IPPROTO_EGP
-    IPPROTO_PUP = 12,	   /* PUP protocol.  */
-#define IPPROTO_PUP		IPPROTO_PUP
-    IPPROTO_UDP = 17,	   /* User Datagram Protocol.  */
-#define IPPROTO_UDP		IPPROTO_UDP
-    IPPROTO_IDP = 22,	   /* XNS IDP protocol.  */
-#define IPPROTO_IDP		IPPROTO_IDP
-    IPPROTO_TP = 29,	   /* SO Transport Protocol Class 4.  */
-#define IPPROTO_TP		IPPROTO_TP
-    IPPROTO_DCCP = 33,	   /* Datagram Congestion Control Protocol.  */
-#define IPPROTO_DCCP		IPPROTO_DCCP
-    IPPROTO_IPV6 = 41,     /* IPv6 header.  */
-#define IPPROTO_IPV6		IPPROTO_IPV6
-    IPPROTO_RSVP = 46,	   /* Reservation Protocol.  */
-#define IPPROTO_RSVP		IPPROTO_RSVP
-    IPPROTO_GRE = 47,	   /* General Routing Encapsulation.  */
-#define IPPROTO_GRE		IPPROTO_GRE
-    IPPROTO_ESP = 50,      /* encapsulating security payload.  */
-#define IPPROTO_ESP		IPPROTO_ESP
-    IPPROTO_AH = 51,       /* authentication header.  */
-#define IPPROTO_AH		IPPROTO_AH
-    IPPROTO_MTP = 92,	   /* Multicast Transport Protocol.  */
-#define IPPROTO_MTP		IPPROTO_MTP
-    IPPROTO_BEETPH = 94,   /* IP option pseudo header for BEET.  */
-#define IPPROTO_BEETPH		IPPROTO_BEETPH
-    IPPROTO_ENCAP = 98,	   /* Encapsulation Header.  */
-#define IPPROTO_ENCAP		IPPROTO_ENCAP
-    IPPROTO_PIM = 103,	   /* Protocol Independent Multicast.  */
-#define IPPROTO_PIM		IPPROTO_PIM
-    IPPROTO_COMP = 108,	   /* Compression Header Protocol.  */
-#define IPPROTO_COMP		IPPROTO_COMP
-    IPPROTO_SCTP = 132,	   /* Stream Control Transmission Protocol.  */
-#define IPPROTO_SCTP		IPPROTO_SCTP
-    IPPROTO_UDPLITE = 136, /* UDP-Lite protocol.  */
-#define IPPROTO_UDPLITE		IPPROTO_UDPLITE
-    IPPROTO_MPLS = 137,    /* MPLS in IP.  */
-#define IPPROTO_MPLS		IPPROTO_MPLS
-    IPPROTO_RAW = 255,	   /* Raw IP packets.  */
-#define IPPROTO_RAW		IPPROTO_RAW
-    IPPROTO_MAX
-  };
-
-/* If __USE_KERNEL_IPV6_DEFS is 1 then the user has included the kernel
-   network headers first and we should use those ABI-identical definitions
-   instead of our own, otherwise 0.  */
-#if !__USE_KERNEL_IPV6_DEFS
-enum
-  {
-    IPPROTO_HOPOPTS = 0,   /* IPv6 Hop-by-Hop options.  */
-#define IPPROTO_HOPOPTS		IPPROTO_HOPOPTS
-    IPPROTO_ROUTING = 43,  /* IPv6 routing header.  */
-#define IPPROTO_ROUTING		IPPROTO_ROUTING
-    IPPROTO_FRAGMENT = 44, /* IPv6 fragmentation header.  */
-#define IPPROTO_FRAGMENT	IPPROTO_FRAGMENT
-    IPPROTO_ICMPV6 = 58,   /* ICMPv6.  */
-#define IPPROTO_ICMPV6		IPPROTO_ICMPV6
-    IPPROTO_NONE = 59,     /* IPv6 no next header.  */
-#define IPPROTO_NONE		IPPROTO_NONE
-    IPPROTO_DSTOPTS = 60,  /* IPv6 destination options.  */
-#define IPPROTO_DSTOPTS		IPPROTO_DSTOPTS
-    IPPROTO_MH = 135       /* IPv6 mobility header.  */
-#define IPPROTO_MH		IPPROTO_MH
-  };
-#endif /* !__USE_KERNEL_IPV6_DEFS */
-```
-
-跳过了Header？？
-
-### 入门PDF阅读
-
-SOCK_RAW包含IP header以及其他subsequent header
-
-
-
-
-
-
 
 # Homework
 
