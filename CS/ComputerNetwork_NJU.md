@@ -166,7 +166,7 @@ $ms:10^{-3}s$
 
 
 1. CSMA/CD
-   1. Min Frame Size? 
+   1. Min Frame Size & Max Link Length? $\frac{PacketSize}{RateOfLink} \geq 2\times \frac{LengthOfLink}{SpeedOfLight}$
 2. Wireless
    1. CSMA/CA??
 
@@ -290,8 +290,9 @@ $ms:10^{-3}s$
 
 -   ![](ComputerNetwork_NJU.assets/UDP.png)
 -   ![](ComputerNetwork_NJU.assets/TCP.png)
-    -   Note:*While computing the checksum, the checksum field itself is replaced with zeros.*
-
+    
+-   Note:*While computing the checksum, the checksum field itself is replaced with zeros.*
+    
 -   >   TCP-Checksum:  16 bits
     >
     >   ​    The checksum field is the 16 bit one’s complement of the one’s complement sum of all 16 bit words in the header and text.  

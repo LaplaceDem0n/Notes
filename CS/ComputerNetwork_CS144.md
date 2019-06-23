@@ -692,7 +692,7 @@ b是真的，因为我们将在0.5 / 1％= 50bit次之后加倍计数。
 
 ### 7-5: MAC and CSMA/CD
 
-$\frac{PacketSize}{RateOfLink} \geq \frac{LengthOfLink}{SpeedOfLight}$
+$\frac{PacketSize}{RateOfLink} \geq 2\times \frac{LengthOfLink}{SpeedOfLight}$
 
 课程答题到这。
 
