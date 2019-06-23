@@ -9,8 +9,6 @@
 3. 看看对应的作业题。
 4. 对着隔壁班的复习提纲再看一遍Slides
 
-
-
 # Basics
 
 ## Switched network
@@ -290,8 +288,9 @@ $ms:10^{-3}s$
 
 -   ![](ComputerNetwork_NJU.assets/UDP.png)
 -   ![](ComputerNetwork_NJU.assets/TCP.png)
-    -   Note:*While computing the checksum, the checksum field itself is replaced with zeros.*
-
+    
+-   Note:*While computing the checksum, the checksum field itself is replaced with zeros.*
+    
 -   >   TCP-Checksum:  16 bits
     >
     >   ​    The checksum field is the 16 bit one’s complement of the one’s complement sum of all 16 bit words in the header and text.  
@@ -342,10 +341,27 @@ $ms:10^{-3}s$
     -   Seqno of next packet is **same as** last ACK field
     -   **Duplicate** ACKs are a *sign of an isolated loss*
     -   Timer
-    
 -   TCP的抽象(stream)和UDP的抽象有什么区别
+    -   TCP抽象成带连接的数据流，UDP抽象成无连接的数据包
+-   RTT&e-RTT
+    -   见课本公式，第七版P158-P159
 
-    
+## TCP congestion control
+
+### FSM sum up
+
+**见课本第七版P179，总结得不错。**
+
+1.  Timeouts $\to$Slow start
+2.  dupACKs$\to$Fast Recovery
+3.  New ACK change state only from Fast Recovery
+
+### Throughput
+
+-   Textbook: $0.75\times\frac{WindowWhenDropPacket}{RoundTripTime}$
+-   Slide: Let $RTT=\frac{W_{max}}{2}$,then $A=\frac{3}{8}W_{max}^2$
+    -   Packet drop rate: $p=\frac{1}{A}$
+    -   Throughput: $B=\sqrt{\frac{3}{2}}\times \frac{1}{RTT\sqrt{p}}$
 
 ### TCP flow&congestion control
 
@@ -361,23 +377,19 @@ Summary(Screenshot)
 
 #### TCP congestion control
 
-7 implications
+7 implications/problems for TCP congestion control
 
-1. 不同RTT有不公平的吞吐量
-2. 需要多条TCP链接使高速Link占满
+1. 不同RTT有不公平的吞吐量（见Throughput计算。Lower RTT, higher throughput）
+2. 需要多条TCP链接使高速Link占满（因为Throughput 与丢包率有关）
 3. 新变种：RateBasedTCPCongestionControl-用方程计算，更加稳定，对流媒体应用友好。
 4. 存在不是因为拥塞而造成的包丢失
-5. 对于短流，不适用。他们甚至没有达到ssthresh
+5. 对于短流，不适用。他们甚至没有达到ssthresh。课本给出了TCP split的解决方案。
 6. 短流也要参与Buffer里的排队
 7. 很容易Cheat
-8. …
-
-
-
--   Sliding window
--   Slow start
--   AIMD
--   RTT&e-RTT
+    1. AI时更快
+    2. 初始化CWND为一个大数
+    3. 同时打开多条连接
+8. 拥塞控制与可靠性缠绕在了一起，有时候我们只需要其中一个。
 
 ## ICMP
 
@@ -393,7 +405,7 @@ Summary(Screenshot)
 
 ## Q
 
-1. Dup ACK
+1. Fast revocery???
 
 ## More to read 
 
