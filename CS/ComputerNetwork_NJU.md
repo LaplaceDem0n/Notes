@@ -391,15 +391,35 @@ Summary(Screenshot)
     3. 同时打开多条连接
 8. 拥塞控制与可靠性缠绕在了一起，有时候我们只需要其中一个。
 
+## NAT
+
+### 2 types
+
+	1. **Static** NAT. A private IP address is mapped to one **reserved**.
+ 	2.  **Dynamic** NAT. The NAT router keeps **a pool of registered IP** 
+     **addresses**, and assign to private IP addresses on demand
+
+### Operation on NAT
+
+Relaying is needed.
+
+-   地址换地址
+-   ###### 端口换地址
+-   静态绑定&动态绑定
+
 ## ICMP
 
 -   Applications
+    -   Ping
+    -   Traceroute
+    -   Path MTU
+        -   By sending large IP packet without ICMP error message.
 
-## NAT
+*Note: Router decrement TTL, then test if it is 0.*
 
--   地址换地址
--   端口换地址
--   静态绑定&动态绑定
+## PPT45
+
+**skipped.**
 
 # End of Transport layer
 
@@ -407,53 +427,90 @@ Summary(Screenshot)
 
 1. Fast revocery???
 
-## More to read 
-
-1. TCP all!!
-
 # Application layer
 
--   HTTP
-    -   有哪些种类，取数据的方式有什么不同
-        -   1.0
-        -   1.1
-        -   2.0
-    -   给出网页的组成计算花费时间和建立连接数等
-    -   HTTP有哪些操作
-    -   Different versions with different fetch strategies
--   DNS
-    -   Two operational modes
--   CDN
+-   -   
 
-NAT->DNS->HTTP
+## DNS
+
+*Usually on UDP Port 53*
+
+-   Two operational modes
+    -   Recursive
+    -   Iterative
+-   Caching for fast lookup
+
+## CDN&video
+
+
 
 ## HTTP
 
-- History
-- Components
-  - URL定位内容
-    - 文件
-    - 函数
-  - HTTP表达内容
-    - 用HTTP1.1举例
+-   History
+-   Components
+    -   URL to locate the content
+        -   Format:  protocol://host-name[:port]/directory-path/resource
+            -   resource can be files or functions
+    -   HTTP表达内容
+        -   用HTTP1.1举例
+
+### HTTP1.1
 
 HTTP1.1
 
-1. 使用明文表示动作，如GET\RESPONSE
+1. 动作如
+    1. GET
+    2. POST, send information (e.g., web forms)
+    3. PUT, uploads file in entity body to path specified in URL field
+    4. DELETE, deletes file specified in the URL field
 2. stateless->Cookies
 3. Performance
-   1. Indepently
-   2. Persistantly
-   3. Pipeline over same connection
-   4. Parallel connection
+   1. Indepently,传一次建立一次连接
+   2. Persistantly,开了之后就暂时不关，传完网页先
+   3. Pipeline over same connection, 把请求一次性发送，只建立一次连接
+   4. Parallel connection,开一堆连接
    5. Caching
-      1. How
+      1. How,  If-modified-since
       2. Where
-         1. Client
-         2. Forward proxy
-         3. Reverse proxy
+         1. Client(browser, for fast response)
+         2. Forward proxy(ISP, reduce network traffic and decrease latency)
+         3. Reverse proxy(By content provider,  decrease server load)
 
+### HTTP Performance
 
+####  N small objects
+
+*Time dominated by latency*
+
+-   One-at-a-time:  ~2n RTT
+-   m concurrent: ~2[n/m] RTT
+-   Persistent: ~ (n+1)RTT
+-   Pipelined: ~2 RTT
+-   Pipelined/Persistent: ~2 RTT first time, RTT 
+    later
+
+#### N large objects each of size F
+
+*Time dominated by bandwidth*
+
+-   One-at-a-time:  ~ nF/B
+-   m concurrent: ~ [n/m] F/B
+    -   Assuming shared with large population of users and 
+        each TCP connection gets the same bandwidth
+-   Pipelined and/or persistent: ~ nF/B
+    -   The only thing that helps is getting more bandwidth
+
+### HTTP version
+
+-   1.0
+    -   Non-persistent connections
+    -   $2RTT+\Delta$  for each object in the HTML file!
+        -   One more $2RTT+\Delta$   for the HTML file itself
+-   1.1
+    -   使用明文表示
+    -   Persistent connections
+-   2.0
+    -   使用二进制表示
 
 # Security
 
@@ -485,7 +542,7 @@ HTTP1.1
 
 # Homework
 
-| *Deadline* | *Homework*                                                   |
+| *Deadline* | *Homework* |
 | ---------- | ------------------------------------------------------------ |
 | *Mar 21*   | *Introduction: (Textbook Charpter 1: R12, R23, R24, R25)*    |
 | *Apr 4*    | *Direct Link Networks: (Textbook Charpter 5: R4, R5, R6, R8, P3, P5, P6, P8, P10, P18, P19, P23, P24, P25, P26) (Textbook Charpter 6: R7, P5, P6, P8)* |
