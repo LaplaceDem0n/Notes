@@ -164,7 +164,7 @@ $ms:10^{-3}s$
 
 
 1. CSMA/CD
-   1. Min Frame Size? 
+   1. Min Frame Size & Max Link Length? $\frac{PacketSize}{RateOfLink} \geq 2\times \frac{LengthOfLink}{SpeedOfLight}$
 2. Wireless
    1. CSMA/CA??
 
