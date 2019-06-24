@@ -158,6 +158,8 @@ $G:10^9$
 
 $ms:10^{-3}s$
 
+微秒$us:10^{-6}s$
+
 # End of Link layer
 
 ## Q
@@ -574,6 +576,25 @@ HTTP1.1
     2.  半套习题
 5.  Application, none
 6.  Security, none is known
+
+# Review on homework
+
+1.  CSMA/CD
+    1.  碰撞n次后选择的K区间为$[0,\dots,n-1]$.
+2.  Checksum
+    1.  按照16字节加起来，不够的按0在后面补齐？有进位加到最后一位。
+3.  Dijkstra&BellmanFord
+    1.  Dij挺简单的
+    2.  BF写的时候稍微有点技巧
+        1.  From一列的节点只有和要求的节点相邻的节点
+        2.  To一行的节点包含所有节点
+        3.  更新的时候人脑运算可以考虑为：用k步到达某个点，最短的路径长度是多少
+4.  毒性逆转与DV算法
+    1.  仅对Path上的next hop欺骗，所以有3个节点成环的时候就不行了
+    2.  对于计算什么时候稳定下来的问题，每次循环一圈，代价就增加圈上的总权值那么多
+5.  BGP
+    1.  eBGP(Edge routers)
+    2.  iBGP(Other routers)
 
 # Final review
 
