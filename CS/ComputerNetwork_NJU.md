@@ -1,5 +1,3 @@
-
-
 # ComputerNetwork_NJU
 
 # 复习指南
@@ -79,7 +77,10 @@ TBD:Pic on PDF 51
 
 ## Q:
 
-1. Link characteristics??
+1. Link characteristics
+    1. Delay
+    2. Loss
+    3. Throughput
 
 ## More to read text:
 
@@ -161,10 +162,8 @@ $ms:10^{-3}s$
 
 ## Q
 
-
-
 1. CSMA/CD
-   1. Min Frame Size & Max Link Length? $\frac{PacketSize}{RateOfLink} \geq 2\times \frac{LengthOfLink}{SpeedOfLight}$
+   1. Min Frame Size(64Bytes/512bits defualt) & Max Link Length? $\frac{PacketSize}{RateOfLink} \geq 2\times \frac{LengthOfLink}{SpeedOfLight}$
 2. Wireless
    1. CSMA/CA??
 
@@ -429,8 +428,6 @@ Relaying is needed.
 
 # Application layer
 
--   -   
-
 ## DNS
 
 *Usually on UDP Port 53*
@@ -514,22 +511,69 @@ HTTP1.1
 
 # Security
 
--   Symmetric keys
-    -   DH key exchange
--   Public-private keys
-    -   How to calculate?
-    -   给出一部分输入能否把pq都推出来？
+## Types of attacks
+
+1.  Passive
+2.  Active
+
+## Public-private keys
+
+### How to calculate?
+
+-   Prime number p & q.
+    -   $n=p\times q= 5183$
+        $z=(p-1)\times (q-1)=5040$
+        $\Phi(e=11,z)=1$,(选择e使得它和z互质)
+        $d=2291 \Rightarrow ed\%z=1$,(选择d使得ed模z得到1)
+
+-   给出一部分输入能否把pq都推出来？
+
+## Key distribution
+
+### Symmetric keys
+
+-   DH key exchange
 -   Trusted 3rd Party
     -   定义？
     -   重要性？
--   IPSec
-    -    两种协议模式
-    -   两种运行模式
-        -    低级：认证
-        -    高级：认证+加密
--   SSL/TLS
 
+## IPSec
 
+-    两种协议模式
+     -    Transport mode
+           Offers end-to-end encryption
+           Often used for remote access
+           End-devices must implement Ipsec
+     -    Tunnel mode
+           Often used between firewalls
+           Used to build Virtual Private Networks (VPN)
+-   两种运行模式
+    -    低级：认证
+    -    高级：认证+加密
+
+## SSL/TLS
+
+## Wireless
+
+## Firewall
+
+# End of Security
+
+# 自认为不会的
+
+1.  Basics
+    1.  虚拟链路
+2.  Link
+    1.  CSMA/CA
+    2.  全套习题
+3.  Network
+    1.  毒性逆转
+    2.  半套习题
+4.  Transport
+    1.  Fast revocery
+    2.  半套习题
+5.  Application, none
+6.  Security, none is known
 
 # Final review
 
