@@ -1,11 +1,13 @@
+
+
 # ComputerNetwork_NJU
 
 # 复习指南
 
-1. 听一边最后的录音。跟着review PPT看Slides，整理Notes。
-2. 挑不会的部分，刚刚看懂的部分做一下课后习题确认自己会了。
-3. 看看对应的作业题。
-4. 对着隔壁班的复习提纲再看一遍Slides
+1. [x]听一边最后的录音。跟着review PPT看Slides，整理Notes。
+2. [x]挑不会的部分，刚刚看懂的部分做一下课后习题确认自己会了。
+3. [x]看看对应的作业题。
+4. [ ]对着隔壁班的复习提纲再看一遍Slides
 
 # Basics
 
@@ -202,6 +204,10 @@ $ms:10^{-3}s$
 -   autonomy
 -   privacy
 
+#### How&What
+
+PPT BGP page15
+
 #### 4 attrs differ from DV
 
 -   Not picking shortest-path routes, BGP selects the best route based on policy
@@ -219,14 +225,18 @@ $ms:10^{-3}s$
 1.  ASPATH
     1.  Vector that lists all the ASes a route 
         advertisement has traversed (in reverse order)
+    2.  不要成环了
 2.   Local preference in choosing between different AS paths(carried only in iBGP messages)
     1.  The higher the value the more preferred
+    2.  两边都能到域内路由，走哪边？
 3.  Multi-exit discriminator (kind like for breaking ties)
     1.  specifies how close a prefix is to the link it is 
         announced on
     2.  Lower is better
+    3.  两边都能出去，去哪边？
 4.  IGP cost for hot-potato routing
     1.  Each router selects the closest egress point based on the path cost in intra-domain protocol
+    2.  丢垃圾去哪最快？
 
 ![](ComputerNetwork_NJU.assets/attr.png)
 
@@ -254,8 +264,18 @@ $ms:10^{-3}s$
 -   Subnet, netmask, gateway etc.
 -   CIDR
     -   More general question
--   ARP
--   DHCP
+-   ARP(Not on UDP or TCP)
+    -   Operation
+        -   Request
+        -   Response
+-   DHCP(On UDP)
+    -   Operation-DORA
+        -   Discovery
+            -   Broadcast
+        -   Offer
+            -   动态的本机IP，子网掩码，网关IP，DNS服务器，DHCP服务器IP地址，IP地址租约时间
+        -   Request
+        -   Acknowledge
 
 # End of network layer
 
@@ -302,13 +322,15 @@ $ms:10^{-3}s$
 
 ```c
 +--------+--------+--------+--------+
-|           Source Address          |
+|           Source Address                |
 +--------+--------+--------+--------+
-|         Destination Address       |
+|         Destination Address        |
 +--------+--------+--------+--------+
-|  zero  |  PTCL  |  TCP Length     |
+|  zero  |protocol|  TCP Length   |
 +--------+--------+--------+--------+
 ```
+
+*Note: Length is both header and data. Same for IP header.*
 
 ### Reliable transmit
 
@@ -525,9 +547,11 @@ HTTP1.1
 -   Prime number p & q.
     -   $n=p\times q= 5183$
         $z=(p-1)\times (q-1)=5040$
-        $\Phi(e=11,z)=1$,(选择e使得它和z互质)
+        $\Phi(e=11,z)=1$,(选择e使得它和z互质，尽量选小的)
         $d=2291 \Rightarrow ed\%z=1$,(选择d使得ed模z得到1)
-
+-   计算$Ciphertext=p^e\%n$
+    -   对端计算$Plaintext=c^d\%n$
+    
 -   给出一部分输入能否把pq都推出来？
 
 ## Key distribution
@@ -542,11 +566,11 @@ HTTP1.1
 ## IPSec
 
 -    两种协议模式
-     -    Transport mode
+     -    Transport mode, 两个客户端PC机上跑代理
            Offers end-to-end encryption
            Often used for remote access
            End-devices must implement Ipsec
-     -    Tunnel mode
+     -    Tunnel mode，路由上跑代理
            Often used between firewalls
            Used to build Virtual Private Networks (VPN)
 -   两种运行模式
@@ -577,24 +601,45 @@ HTTP1.1
 5.  Application, none
 6.  Security, none is known
 
+# Review on LWZ
+
+1.  虚电路？
+2.  报文鉴别
+3.  数字签名
+4.  安全电子邮件
+
 # Review on homework
 
 1.  CSMA/CD
+    
     1.  碰撞n次后选择的K区间为$[0,\dots,n-1]$.
+    
 2.  Checksum
+    
     1.  按照16字节加起来，不够的按0在后面补齐？有进位加到最后一位。
+    
 3.  Dijkstra&BellmanFord
     1.  Dij挺简单的
     2.  BF写的时候稍微有点技巧
         1.  From一列的节点只有和要求的节点相邻的节点
         2.  To一行的节点包含所有节点
         3.  更新的时候人脑运算可以考虑为：用k步到达某个点，最短的路径长度是多少
+    
 4.  毒性逆转与DV算法
     1.  仅对Path上的next hop欺骗，所以有3个节点成环的时候就不行了
     2.  对于计算什么时候稳定下来的问题，每次循环一圈，代价就增加圈上的总权值那么多
+    
 5.  BGP
     1.  eBGP(Edge routers)
     2.  iBGP(Other routers)
+    
+6.  RSA
+
+    1.  pqnzed 
+
+        1.  Chiphertext=(Plaintext^e)%n
+
+            (Chiphertext^d)%n
 
 # Final review
 
