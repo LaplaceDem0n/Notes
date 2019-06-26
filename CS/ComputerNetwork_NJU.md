@@ -69,8 +69,6 @@ TBD:Pic on PDF 51
 
 ### Throughput
 
-## 
-
 ## Laying & Encapsulation
 
 ### pros & cons 
