@@ -2,6 +2,54 @@
 
 # 虚拟化（Virtualization）
 
+## 进程抽象-Chapter 3-6
+
+以下程序将输出多少个Hello？
+
+```c
+for (int i = 0; i < n; i++) {
+    fork();  
+    printf("Hello\n");
+}
+```
+
+## 终端与Shell
+
+有点意思，大班不考。
+
+[Job Control](https://www.gnu.org/software/libc/manual/html_node/Job-Control.html)
+
+ [Implementing a Shell](https://www.gnu.org/software/libc/manual/html_node/Implementing-a-Shell.html#Implementing-a-Shell)
+
+## 处理器调度-Chapter 6-10
+
+## 虚存抽象-Chapter 13-20
+
+只允许地址空间映射足够大的连续内存，并且可以设置访问权限
+
+-   段 (segment)：仅允许几段连续的虚拟内存；
+
+    O(S)*O*(*S*)
+
+    开销
+
+    -   x86: GDT, LDT描述“段”的内存映射
+
+-   页 (page)：可以以页为单位自由映射；
+
+    O(M/p)*O*(*M*/*p*)
+
+    开销
+
+    -   x86: “页目录-页表”数据结构描述内存映射
+    -   内存越大，页表层数越多：PML4 (48bit)
+
+-   复习：名词解释
+    
+    -   多级页表；反置页表；TLB (Translation Lookaside Buffer)
+
+
+
 ## 08-Cpu-Scheduling-mlfq
 
 **Challenging problem:**
@@ -283,4 +331,118 @@ OS本身就是一个并发程序，尤其是引入了中断之后。
 
 ### 28-14拒绝饥饿
 
+## 30条件变量（CV）
+
+**skipped.**
+
+## 31信号量（Semaphore）
+
+**太难受了这一部分打印出来看吧，程序好多。**
+
+# XF并发进程
+
+无关并发进程的判断与Bernstein条件。
+
 # 持久化（Persistence）
+
+## 存储介质-Chapter 37, 44
+
+科普信息，不过作为CS同学还是可以看一看的。
+
+## I/O设备与驱动-Chapter 36
+
+设备是三种操作的集合
+
+-   发送命令、读取状态、传输数据
+
+CPU终究是通过地址和数据访问I/O设备的
+
+-   Port IO/MMIO只是两种不同的地址空间
+-   电路负责根据地址把地址和数据“转发”给设备
+
+CPU使用设备的流程
+
+-   给设备发送命令 (指令数量较少，因此相对较快)
+-   → 传送数据 (数据量大时非常耗时)
+-   → 等待设备完成 (设备与CPU并行)
+
+设备驱动程序把I/O设备控制接口抽象为一组API
+
+-   设备最常用的功能是交换数据：read/write、配置：ioctl
+
+Direct Memory Access(DMA)，可以理解为实现`memcpy()`的I/O设备
+
+-   内存-内存、端口-内存的复制
+-   这样CPU就可以在传送数据时做其他事
+
+## 文件系统概念与API-Chapter 39
+
+虚拟，抽象，便于用户使用
+
+对同一个文件的多次操作是自然的
+
+-   文件描述符避免了每次操作都要重新打开文件
+-   同时也帮助我们自动管理文件访问的偏移量
+
+概念：文件 = 虚拟磁盘 = `uint8_t file[]`
+
+------
+
+内存映射方式访问
+
+-   适合随机访问的结构数据 (数据库)
+
+```c
+fd = open("/dev/sda", O_RDONLY);
+uint8_t *file = mmap(NULL, 128 GB, PROT_READ | 					 PROT_WRITE,MAP_SHARED, fd, 0);
+```
+
+------
+
+read/write方式访问
+
+-   适合流式文件 (文件描述符托管了offset)
+
+```c
+int fd = open("fname", O_WRONLY);
+write(fd, "Hello ", 6);
+write(fd, "World\n", 6);
+```
+
+## 文件系统实现-Chapter 37 40
+
+Block I/O调度，I/O请求优化 + 兼顾进程优先级和公平
+
+-   例子：按照“电梯”方式寻道
+
+这件事不该归操作系统管
+
+-   磁盘的读/写特性差异太大了
+    -   SSD vs. HDD vs. USB Flash
+    -   每个磁盘的内部特性又不同，需要不同参数
+-   应该是磁盘里的系统管(毕竟它最懂磁盘的性能)
+
+操作系统管什么？
+
+-   桌面系统：保证进程尽可能公平地获得I/O操作(类似CFS)
+-   服务器/虚拟化环境：只做请求优化，不做额外的调度(FIFO)
+
+实现文件系统需要考虑以下因素：
+
+-   虚拟磁盘的数据结构 (链表、树、……)
+-   目录文件的数据结构
+-   inode的表示和存储
+-   balloc/bfree的实现
+
+## FAT和ext2-Chapter 40
+
+File Allocation Table
+
+看书吧。
+
+## 持久数据的可靠性-Chapter 38
+
+## 崩溃恢复与日志-Chapter 42, 43
+
+大班没教，暑假再补吧。
+
