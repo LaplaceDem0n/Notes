@@ -695,3 +695,5 @@ Dijkstra不可处理负权值情况， Bellman-Ford可以。
 ## Q
 
 1.  Quicksort’s partition algorithm?
+
+![](Algorithm_NJU.assets/Future.png)
