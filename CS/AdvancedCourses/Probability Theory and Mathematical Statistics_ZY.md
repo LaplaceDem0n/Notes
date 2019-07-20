@@ -1,5 +1,13 @@
 # Probability Theory and Mathematical Statistics_ZY
 
+# 基础概念
+
+-   样本点/基本事件
+-   样本空间
+-   随机事件
+    -   必然事件
+    -   不可能事件
+
 ### 古典概型
 
 -   条件
@@ -7,7 +15,10 @@
 -   使用
     -   样本点个数一比即可
 -   主要技巧
-    -   排列组合
+    -   穷举
+    -   加法原理、乘法原理、排列组合
+    -   对立事件思想
+        -   如果研究A复杂，就研究$\overline A$
 
 ### 几何概型
 
@@ -28,23 +39,34 @@
     3.  独立事件-拆积-乘积的概率等于概率的乘积
     4.  条件概率
 3.  减法$P(A-B)=P(A)-P(AB)$
-4.  除法条件概率$P(A|B)=\frac{P(AB)}{P(B)}​$
+4.  除法条件概率$P(A|B)=\frac{P(AB)}{P(B)}$
     1.  在B的条件下A发生的概率
 5.  乘法$P(AB)=P(B)P(A|B)=P(A)P(A|B)$
     1.  $P(A_1A_2A_3)=P(A_1)P(A_2|A_1)P(A_3|A_1A_2)$一个个出来。
-6.  全概率公式-完备事件组-不重不漏- 并起来是全集，任意两个交是空集
-7.  贝叶斯公式-逆概率公式
+6.  全概率公式
+    1.   划分/完备事件组:不重不漏- 并起来是全集，任意两个交是空集
+    2.  确实可以用小偷偷东西的例子记忆
+7.  贝叶斯公式/逆概率公式
+    1.  执果索因->是谁偷的！
+
+# 分布
+
+## 基础概念
+
+-   随机变量
+-   分布函数
 
 ### 一维随机变量
 
 -   离散型随机变量
+    -   可能取值是**有限个**或**无穷可列个**
     -   分布律
     -   分布函数$F(x)=P(x\leq x_i),-\infty < x <\infty$。
 -   连续型随机变量
     -   概率密度
     -   $\forall$非负可积函数$f(x)$，使得$\forall x \in (-\infty,\infty)$，
-        -   有分布函数$F(x)=\int_{-\infty}^xf(t)dt ​$，
-        -   则称X为连续型，$f(x)​$叫做X的概率密度。
+        -   有分布函数$F(x)=\int_{-\infty}^xf(t)dt $，
+        -   则称X为连续型，$f(x)$叫做X的概率密度。
 -   $F(x)$是某个X的分布函数$\iff$
     -   单调，非递减
     -   $F(-\infty)=0\wedge F(\infty)=1$
@@ -89,20 +111,20 @@
         -   常用与描述稀有事件发生的概率
 -   均匀分布——“几何概型”的数学化
     -   公式
-        -   若$X\sim f(x)=\frac{1}{b-a}，当a\leq x\leq b​$
-        -   $X\sim f(x)=0，其他情况​$
+        -   若$X\sim f(x)=\frac{1}{b-a}，当a\leq x\leq b$
+        -   $X\sim f(x)=0，其他情况$
         -   则称$X\sim U[a,b]$
 -   指数分布
     -   公式
         -   若$X\sim f(x)=\lambda e^{-\lambda x},x>0$
         -   $X\sim f(x)=0,x\leq0$
-        -   则称$X\sim E_x(\lambda),(\lambda > 0)​$
+        -   则称$X\sim E_x(\lambda),(\lambda > 0)$
     -   $\lambda $称为失效率，$EX=\frac {1}{\lambda}$
 -   正态分布
     -   公式
-        -   若$X\sim f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}​$
+        -   若$X\sim f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
     -   记号
-        -   $X\sim N(\mu,\sigma^2)​$
+        -   $X\sim N(\mu,\sigma^2)$
         -   若$\mu=0,\sigma^2=1,\sigma=1$,记作$X\sim \varphi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$。即标准正态分布，称$X\sim N(0,1)$。
 
 ### 例题分析

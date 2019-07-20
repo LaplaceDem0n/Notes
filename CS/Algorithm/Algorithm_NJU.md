@@ -476,6 +476,8 @@ Prim的兄弟，OJ上实现过。
 
 
 
+# Numerics（From MIT 6.006)
+
 # 复习笔记
 
 # 期中复习
