@@ -1,3 +1,5 @@
+
+
 # MIT 6.041 Probability
 
 # Sample Space & Probability
@@ -188,3 +190,7 @@ When X and Y are independent:
 ## Summary
 
 ## Problems
+
+
+
+# Continuous Random Variables
