@@ -19,7 +19,7 @@ Sequential Models.
 
 ### 3 Probability Axioms
 
-1.  Nonnegativity
+1.  Non-negativity
 2.  Additivity
 3.  Normalization
 
@@ -34,8 +34,6 @@ P14 textbook, Some Prop. s of Probability Laws.
 ### Multiplication Rule
 
 ## Total Probability Theorem & Bayes’ Rule
-
-
 
 ## Independence
 
@@ -133,6 +131,13 @@ Memoryless property->无记忆性，给定X>2时 r.v. X-2有着一样的PMF。
 
 ## Expectation, Mean & Variance
 
+### Prop. s of expectation
+
+线性性：
+
+1.  $E(\alpha X+ \beta)=\alpha E(X)+ \beta$
+2.  $E(X+Y+Z)=E(X)+E(Y)+E(Z)$
+
 期望和均值是一个意思。
 
 方差有两种定义，和一种简便的计算方法。方差又叫二阶矩。进一步有标准差。
@@ -194,3 +199,103 @@ When X and Y are independent:
 
 
 # Continuous Random Variables
+
+##  Continuous r.v. & PDFs
+
+Prop. s:
+
+1.  Non-negativity
+2.  Normalization on integral
+
+Exp:
+$$
+E[X]=\int_{-\infty}^{\infty}xf_x(x)dx
+$$
+Var:
+$$
+var(X)=\int_{-\infty}^{\infty}(x-E[X])^2f_X(x)dx
+$$
+
+#### Exponential r.v.
+
+Def:
+
+$$
+f(x)=
+\begin{cases}
+\lambda e^{\lambda x},& {x \geq 0}\\
+0,& {otherwise}
+\end{cases}
+$$
+
+Prop:
+
+1.  $E[X]=\frac{1}{\lambda}$
+2.  $var[X]=\frac{1}{\lambda^2}$
+
+## CDF
+
+If r.v. is continuous:
+
+1.  $CDF'=PDF$
+2.  $\int PDF=CDF$
+
+**Example: Max/Min of several r.v. P151**
+
+## Normal r.v.
+
+a.k.a. Gaussian r.v. *See Def in summary section.*
+
+Prop. s: Normality is preserved by linear transformations.
+
+![1568534034114](Probability-MIT6.041.assets/1568534034114.png)
+
+## Joint PDFs of Multiple r.v.
+
+![1568534093086](Probability-MIT6.041.assets/1568534093086.png)
+
+## Conditioning
+
+![1568534274337](Probability-MIT6.041.assets/1568534274337.png)
+
+![1568534292223](Probability-MIT6.041.assets/1568534292223.png)
+
+![1568534314914](Probability-MIT6.041.assets/1568534314914.png)
+
+## The Continuous Bayes' Rule
+
+![1568534444714](Probability-MIT6.041.assets/1568534444714.png)
+
+![1568534458513](Probability-MIT6.041.assets/1568534458513.png)
+
+## Summary
+
+![1568534504379](Probability-MIT6.041.assets/1568534504379.png)
+
+![1568534515439](Probability-MIT6.041.assets/1568534515439.png)
+
+## Problem
+
+# Further Topics on r.v.
+
+## Derived Distributions
+
+When not to find them: Don't need PDF for $g(X,Y)$ but only want to compute $E[g(X,Y)]=\int\int g(x,y)f_{X,Y}(x,y)dxdy$
+
+## Covariance & Correlation
+
+## Conditional Expectation & Variance Revisited
+
+## Transforms
+
+## Sum of a r.v. of Indep. r.v. s
+
+## Summary
+
+## Problem
+
+# Limit Theorems
+
+## Summary
+
+## Problem
