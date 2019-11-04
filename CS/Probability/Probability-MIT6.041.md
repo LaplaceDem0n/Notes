@@ -280,15 +280,73 @@ Prop. s: Normality is preserved by linear transformations.
 
 ## Derived Distributions
 
-When not to find them: Don't need PDF for $g(X,Y)$ but only want to compute $E[g(X,Y)]=\int\int g(x,y)f_{X,Y}(x,y)dxdy$
+![image-20191104113255084](Probability-MIT6.041.assets/image-20191104113255084.png)
+
+**Cookbook procedure**: 按照定义求CDF(建议画图辅助)，对CDF求导就得到PDF。
+
+![image-20191104113329235](Probability-MIT6.041.assets/image-20191104113329235.png)
+
+**When not to find them**: Don't need PDF for $g(X,Y)$ but only want to compute $E[g(X,Y)]=\int\int g(x,y)f_{X,Y}(x,y)dxdy$
+
+当`y=g(X)`严格单调的时候有特殊公式。
+
+![image-20191104113353069](Probability-MIT6.041.assets/image-20191104113353069.png)
+
+![image-20191104113402712](Probability-MIT6.041.assets/image-20191104113402712.png)
+
+
+
+
 
 ## Covariance & Correlation
 
+关于独立和协方差/相关系数为0的单向关系，考虑十字形的分布(具体见课本例子)。
+
+相关系数在-1到1之间的证明（看作向量的cos）。
+
+![image-20191104113458159](Probability-MIT6.041.assets/image-20191104113458159.png)
+
 ## Conditional Expectation & Variance Revisited
+
+![image-20191104113528336](Probability-MIT6.041.assets/image-20191104113528336.png)
+
+![image-20191104113547342](Probability-MIT6.041.assets/image-20191104113547342.png)
+
+![image-20191104114011938](Probability-MIT6.041.assets/image-20191104114011938.png)
+
+-   Law of iterated expectations
+
+    -   由全期望公式推导而来
+    -   课本上一般倒着用/主动设置partition来计算期望（可以用于不想积分求期望值且partition比较明显的时候）。
+
+-   Law of total variance
+
+    -   拆开来用
+    -   直观理解
+        -   variability **within** sections
+        -   variability **between** sections
+
+-   Sum of random number of r.v. s
+
+    -   mean: `E[Y]=E[N]E[X]`
+
+    -   variance: `var(Y)=...`(Law of total variance )
+
+        
 
 ## Transforms
 
+![image-20191104120952091](Probability-MIT6.041.assets/image-20191104120952091.png)
+
+![image-20191104121010595](Probability-MIT6.041.assets/image-20191104121010595.png)
+
+![image-20191104121049095](Probability-MIT6.041.assets/image-20191104121049095.png)
+
+![image-20191104121102868](Probability-MIT6.041.assets/image-20191104121102868.png)
+
 ## Sum of a r.v. of Indep. r.v. s
+
+![image-20191104121130922](Probability-MIT6.041.assets/image-20191104121130922.png)
 
 ## Summary
 
