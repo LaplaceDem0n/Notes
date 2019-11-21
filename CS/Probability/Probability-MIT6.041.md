@@ -223,7 +223,7 @@ Def:
 $$
 f(x)=
 \begin{cases}
-\lambda e^{\lambda x},& {x \geq 0}\\
+\lambda e^{-\lambda x},& {x \geq 0}\\
 0,& {otherwise}
 \end{cases}
 $$
@@ -357,3 +357,36 @@ Prop. s: Normality is preserved by linear transformations.
 ## Summary
 
 ## Problem
+
+
+
+# The Bernoulli & Poisson Process
+
+## The Bernoulli Process
+
+## The Poisson Process
+
+## Summary
+
+## Problem
+
+
+
+# Markov Chains
+
+## Summary
+
+## Problem
+
+# Bayes Statistical Inference
+
+## Summary
+
+## Problem
+
+# Classical Statistical Inference
+
+## Summary
+
+## Problem
+
