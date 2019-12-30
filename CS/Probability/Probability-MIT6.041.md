@@ -27,7 +27,7 @@ Discrete Uniform Probability Law->古典概型。
 
 Continuous Models->几何概型。
 
-P14 textbook, Some Prop. s of Probability Laws.
+P14 textbook, Some Prop. }s of Probability Laws.
 
 ## Conditional Probability
 
@@ -60,10 +60,14 @@ Prop:
 
 ## Counting
 
+![image-20191230150028608](Probability-MIT6.041.assets/image-20191230150028608.png)
+
 1.  乘法法则
-2.  k-permutations->n元素取k元素排列
+2.  k-permutations->n元素取k元素**排列**，他们的$$P_n^k$$也就是大陆的$$A_n^k$$
+    1.  $$A_n^k=\frac{n!}{(n-k)!}$$
 3.  Combinations
-4.  Partitions(Multinomial coefficient)->由多次Combination导出
+    1.  $$C_n^k=\frac{n!}{k!(n-k)!}$$
+4.  Partitions(Multinomial coefficient)->由多次Combination导出，或者说其分母部分是忽略了一堆中的牌的顺序。
 
 ## Summary
 
@@ -93,29 +97,49 @@ Def. of Random Variables-A real-valued function of the experimental outcome.
 
 ### 几种典型的随机变量及其均值方差
 
+![image-20191230150801493](Probability-MIT6.041.assets/image-20191230150801493.png)
+
+![image-20191230150817848](Probability-MIT6.041.assets/image-20191230150817848.png)
+
 #### The Bernoulli Random Variable
 
-**01分布/伯努利分布**
+**01分布/伯努利分布**，抛硬币。
 
 一次实验，p概率成功，1-p概率失败。
 
+均值$p$，方差$p(1-p)$
+
 #### The Binomial Random Variable
 
-**二项分布**
+**二项分布**，n次伯努利实验。
 
 组合数加上概率的乘法法则导出。
 
+均值$np$，方差$np(1-p)$
+
 #### The Geometric Random Variable
 
-**几何分布**
+**几何分布**，一直玩玩到玩坏为止。每次坏的概率是p。
+
+均值$\frac{1}{p}$，方差$\frac{1-p}{p^2}$
+
+## The Exponential distribution
+
+PDF和CDF都要记住，均值$\frac{1}{\lambda}$，方差$\frac{1}{\lambda^2}$。
+
+算积分的时候可能会用到分部积分。
+
+游戏玩家开始排队的时间，MacBook坏的时间。
 
 Memoryless property->无记忆性，给定X>2时 r.v. X-2有着一样的PMF。
+
+**这个性质在算条件概率的时候有时挺有用，比如2台MacBook，一台坏的时候另外一台的预期寿命分布形状并不改变，只是shift了一段时间。**
 
 #### The Poisson Random Variable
 
 **泊松分布**
 
-*在$\lambda = np$且n很大p很小时可做近似计算。*
+*在$\lambda = np$且n很大p很小时，泊松分布可作为二项分布的近似。*
 
 ## Functions of Random Variables
 
@@ -196,8 +220,6 @@ When X and Y are independent:
 
 ## Problems
 
-
-
 # Continuous Random Variables
 
 ##  Continuous r.v. & PDFs
@@ -217,6 +239,8 @@ var(X)=\int_{-\infty}^{\infty}(x-E[X])^2f_X(x)dx
 $$
 
 #### Exponential r.v.
+
+**Important！！**
 
 Def:
 
