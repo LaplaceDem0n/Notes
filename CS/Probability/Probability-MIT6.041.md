@@ -414,3 +414,45 @@ Prop. s: Normality is preserved by linear transformations.
 
 ## Problem
 
+
+
+# Problems
+
+## Expectation
+
+1.  $E[X^2]=E[X]+Var(X)$
+2.  $E[g(x,y)]=\iint g(x,y)f(x,y)dxdy$
+3.  $E[XY]=E[E[XY|X]]\dots$
+
+## Variance
+
+1.  $V(X)=E[X^2]-E^2[X]$
+
+## Covariance
+
+1.  $Cov(X,Y)=E[XY]-E[X]E[Y]$
+
+## PDF
+
+
+
+1.  普通的$f(z)$:
+    1.  两个部分的PDF都已知： convolution，其区间为两个子概率分布的正概率密度区间交集
+    2.  否则：$CDF'=PDF$
+2.  Joint PDF, $f(x,y)$:
+    1.  独立的时候特简单不可能考吧
+    2.  不独立的时候，可能可以拆成独立的变量（2009Fall，Quiz1，Q3c）
+
+
+
+
+
+## Conditional probability
+
+1.  多r.v.时
+    1.  条件=联合除以边缘
+2.  特殊情况
+    1.  指数分布的无记忆性
+3.  反着推的时候
+    1.  Bayes
+
