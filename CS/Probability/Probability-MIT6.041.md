@@ -27,7 +27,7 @@ Discrete Uniform Probability Law->古典概型。
 
 Continuous Models->几何概型。
 
-P14 textbook, Some Prop. }s of Probability Laws.
+P14 textbook, Some Prop. s of Probability Laws.
 
 ## Conditional Probability
 
